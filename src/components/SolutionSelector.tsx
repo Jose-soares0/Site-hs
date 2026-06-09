@@ -71,7 +71,7 @@ export default function SolutionSelector() {
             <div className="grid gap-0 lg:grid-cols-[1fr_0.9fr]">
               <div className="p-6 sm:p-8">
                 <p className="text-sm font-black uppercase text-blue-monitoring">Solução recomendada</p>
-                <h3 className="mt-3 font-display text-3xl font-black leading-tight text-black-hs">{activeSolution.title}</h3>
+                <h3 className="mt-3 font-display text-2xl font-black leading-tight text-black-hs sm:text-[1.65rem]">{activeSolution.title}</h3>
                 <p className="mt-4 text-base leading-7 text-gray-600">{activeSolution.description}</p>
 
                 <div className="mt-7 grid gap-3">
@@ -94,7 +94,7 @@ export default function SolutionSelector() {
                 <div className="mt-5 grid gap-3">
                   {activeSolution.recommended.map((item) => (
                     <div className="rounded-2xl border border-white/12 bg-white/6 p-4" key={item}>
-                      <span className="font-display text-lg font-black">{item}</span>
+                      <span className="font-display text-base font-black sm:text-lg">{item}</span>
                     </div>
                   ))}
                 </div>
