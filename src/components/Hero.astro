@@ -1,10 +1,18 @@
 ---
 import WhatsAppButton from "./WhatsAppButton.astro";
+import { site } from "@data/site";
 ---
 
 <section id="topo" class="dark-surface min-h-screen pt-24">
   <div class="section-shell relative z-10 flex min-h-[calc(100vh-6rem)] items-center pb-14">
     <div class="max-w-5xl">
+      <img
+        class="mb-6 h-20 w-20 rounded-2xl border border-white/14 bg-black-hs object-contain p-2 shadow-2xl shadow-black/30 sm:h-24 sm:w-24"
+        src={site.logo}
+        alt="Logo HS Seg"
+        width="96"
+        height="96"
+      />
       <h1 class="display-title max-w-4xl text-[clamp(2.25rem,5vw,4.6rem)] leading-[1.06] text-white">
         Somos a sua segurança 24hrs
       </h1>

@@ -148,13 +148,13 @@ select {
 }
 
 .whatsapp-button {
-  background: #1fbf75;
+  background: #d9dee6;
   color: #06080b;
-  box-shadow: 0 14px 34px rgba(31, 191, 117, 0.24);
+  box-shadow: 0 14px 34px rgba(141, 150, 163, 0.24);
 }
 
 .whatsapp-button:hover {
-  box-shadow: 0 18px 42px rgba(31, 191, 117, 0.32);
+  box-shadow: 0 18px 42px rgba(141, 150, 163, 0.3);
 }
 
 .secondary-button {
