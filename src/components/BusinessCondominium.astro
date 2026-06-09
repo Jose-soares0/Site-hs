@@ -1,0 +1,45 @@
+---
+const items = [
+  {
+    title: "CFTV e perímetro",
+    description: "Visibilidade para entradas, corredores, estoque, garagens e pontos críticos da operação.",
+  },
+  {
+    title: "Alarmes e sensores",
+    description: "Detecção em áreas sensíveis, com procedimentos definidos conforme a necessidade do cliente.",
+  },
+  {
+    title: "Controle de acesso",
+    description: "Organização de circulação, registros e acessos em condomínios, lojas e empresas.",
+  },
+  {
+    title: "Monitoramento",
+    description: "Acompanhamento para reduzir risco operacional e apoiar decisões quando houver alerta.",
+  },
+];
+---
+
+<section class="section-space bg-white">
+  <div class="section-shell">
+    <div class="grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
+      <div>
+        <p class="eyebrow">Empresas e condomínios</p>
+        <h2 class="section-title mt-4">Proteção para patrimônio, circulação e pontos críticos da operação.</h2>
+        <p class="lead-text mt-5">
+          Para síndicos, gestores e empresários, a decisão precisa ser clara: mais visibilidade, mais controle e uma operação local para orientar a segurança no dia a dia.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {items.map((item) => (
+          <article class="rounded-3xl border border-gray-line bg-white p-6 shadow-[0_16px_44px_rgba(6,8,11,0.06)]">
+            <span class="mb-5 block h-1 w-12 rounded-full bg-blue-monitoring"></span>
+            <h3 class="font-display text-xl font-black text-black-hs">{item.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+

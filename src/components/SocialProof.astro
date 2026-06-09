@@ -1,0 +1,51 @@
+---
+const proofs = [
+  {
+    image: "/images/case-installation-placeholder.svg",
+    label: "Instalação real",
+    title: "[FOTO DE INSTALAÇÃO]",
+    text: "Espaço reservado para fotos reais de câmeras, alarmes, rastreamento ou central da HS Seg.",
+  },
+  {
+    image: "/images/feedback-placeholder.svg",
+    label: "Feedback",
+    title: "[DEPOIMENTO REAL]",
+    text: "Substitua por prints e relatos reais de clientes para aumentar confiança sem inventar prova social.",
+  },
+  {
+    image: "/images/logo-hs.png",
+    label: "Operação local",
+    title: "[CASE REAL DO INSTAGRAM]",
+    text: "Use casos publicados no Instagram, clientes autorizados e bastidores de atendimento.",
+  },
+];
+---
+
+<section id="casos" class="section-space bg-white-shield">
+  <div class="section-shell">
+    <div class="grid gap-8 lg:grid-cols-[0.76fr_1fr] lg:items-end">
+      <div>
+        <p class="eyebrow">Prova social</p>
+        <h2 class="section-title mt-4">Confiança construída na prática, com casos e clientes reais.</h2>
+      </div>
+      <p class="lead-text">
+        Segurança é uma decisão de confiança. Esta área foi preparada para receber fotos, prints e cases reais da HS Seg sem criar depoimentos fictícios.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      {proofs.map((proof) => (
+        <article class="technical-card overflow-hidden">
+          <div class="grid aspect-[4/3] w-full place-items-center bg-black-hs p-8">
+            <img class="max-h-full max-w-full object-contain" src={proof.image} alt={proof.title} loading="lazy" />
+          </div>
+          <div class="p-6">
+            <p class="text-xs font-black uppercase text-blue-monitoring">{proof.label}</p>
+            <h3 class="mt-2 font-display text-xl font-black text-black-hs">{proof.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">{proof.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

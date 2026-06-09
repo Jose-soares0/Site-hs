@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Equipe ou fachada da HS Seg</title>
+  <desc id="desc">Placeholder para foto real da equipe, fachada ou central de operacao da HS Seg.</desc>
+  <rect width="960" height="640" fill="#151A21"/>
+  <rect x="70" y="70" width="820" height="500" rx="34" fill="#06080B" stroke="#2B3440"/>
+  <path d="M480 140l172 64v118c0 100-66 164-172 222-106-58-172-122-172-222V204l172-64Z" fill="#F7F8FA"/>
+  <path d="M480 184l118 44v84c0 70-44 116-118 158-74-42-118-88-118-158v-84l118-44Z" fill="#06080B"/>
+  <text x="382" y="330" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="46" font-weight="800">HS SEG</text>
+  <text x="286" y="522" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="28" font-weight="700">[IMAGEM REAL DA EMPRESA]</text>
+</svg>
+

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">Feedback real de cliente</title>
+  <desc id="desc">Placeholder para print ou depoimento real de cliente da HS Seg.</desc>
+  <rect width="720" height="520" fill="#06080B"/>
+  <rect x="56" y="64" width="608" height="392" rx="34" fill="#F7F8FA"/>
+  <circle cx="126" cy="134" r="36" fill="#151A21"/>
+  <rect x="182" y="110" width="214" height="18" rx="9" fill="#151A21"/>
+  <rect x="182" y="146" width="154" height="14" rx="7" fill="#8D96A3"/>
+  <rect x="110" y="222" width="500" height="18" rx="9" fill="#151A21"/>
+  <rect x="110" y="262" width="458" height="18" rx="9" fill="#151A21"/>
+  <rect x="110" y="302" width="382" height="18" rx="9" fill="#151A21"/>
+  <rect x="110" y="372" width="242" height="42" rx="21" fill="#F4B000"/>
+  <text x="132" y="401" fill="#06080B" font-family="Arial, sans-serif" font-size="18" font-weight="700">[DEPOIMENTO REAL]</text>
+</svg>
+

@@ -1,0 +1,41 @@
+---
+import { services } from "@data/services";
+import { createWhatsAppLink } from "@utils/whatsapp";
+---
+
+<section id="servicos" class="section-space bg-white">
+  <div class="section-shell">
+    <div class="grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:items-end">
+      <div>
+        <p class="eyebrow">Serviços principais</p>
+        <h2 class="section-title mt-4">Tecnologia, instalação e acompanhamento em uma operação só.</h2>
+      </div>
+      <p class="lead-text">
+        A HS Seg deve ser percebida como parceira de proteção contínua, não apenas como instalação pontual de equipamentos.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((service) => (
+        <article id={service.title === "Monitoramento 24h" ? "monitoramento-24h" : undefined} class="group technical-card flex min-h-[284px] scroll-mt-28 flex-col p-5 transition duration-200 hover:-translate-y-1 hover:border-blue-monitoring/70 hover:shadow-2xl">
+          <div class="mb-6 flex items-center justify-between gap-4">
+            <span class="grid size-14 place-items-center rounded-2xl bg-black-hs font-display text-sm font-black text-white">
+              {service.label}
+            </span>
+            <span class="h-1 w-10 rounded-full bg-gray-line transition group-hover:w-14"></span>
+          </div>
+          <h3 class="font-display text-xl font-black leading-tight text-black-hs">{service.title}</h3>
+          <p class="mt-3 flex-1 text-sm leading-6 text-gray-600">{service.description}</p>
+          <a
+            class="mt-6 inline-flex font-display text-sm font-black text-blue-monitoring"
+            href={createWhatsAppLink(service.message)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {service.cta}
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

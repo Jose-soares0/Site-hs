@@ -1,0 +1,20 @@
+---
+const items = [
+  { value: "8 anos", label: "de experiência prática" },
+  { value: "24h", label: "de monitoramento" },
+  { value: "Piauí", label: "atendimento local" },
+  { value: "4 frentes", label: "casa, empresa, condomínio e veículo" },
+];
+---
+
+<section class="border-y border-gray-line bg-white">
+  <div class="section-shell grid divide-y divide-gray-line sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+    {items.map((item) => (
+      <div class="py-7 sm:px-6">
+        <p class="font-display text-3xl font-black text-black-hs">{item.value}</p>
+        <p class="mt-1 text-sm font-semibold text-gray-500">{item.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+

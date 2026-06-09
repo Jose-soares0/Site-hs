@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">Foto real de instalacao</title>
+  <desc id="desc">Placeholder para foto real de instalacao de cameras, alarmes ou rastreamento.</desc>
+  <rect width="720" height="520" fill="#F7F8FA"/>
+  <rect x="40" y="40" width="640" height="440" rx="30" fill="#151A21"/>
+  <rect x="88" y="86" width="260" height="170" rx="20" fill="#0B1118" stroke="#2B3440"/>
+  <rect x="372" y="86" width="260" height="170" rx="20" fill="#0B1118" stroke="#2B3440"/>
+  <rect x="88" y="282" width="544" height="120" rx="20" fill="#0B1118" stroke="#2B3440"/>
+  <path d="M154 168h104l34 44H120l34-44Z" fill="#F4B000"/>
+  <circle cx="502" cy="170" r="58" fill="#0B7CFF"/>
+  <circle cx="502" cy="170" r="22" fill="#06080B"/>
+  <rect x="132" y="326" width="456" height="18" rx="9" fill="#8D96A3"/>
+  <rect x="132" y="362" width="310" height="14" rx="7" fill="#2B3440"/>
+  <text x="116" y="448" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="24" font-weight="700">[FOTO DE INSTALACAO REAL]</text>
+</svg>
+

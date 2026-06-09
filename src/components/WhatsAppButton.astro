@@ -1,0 +1,31 @@
+---
+import { createWhatsAppLink, defaultWhatsAppMessage } from "@utils/whatsapp";
+
+interface Props {
+  label?: string;
+  message?: string;
+  variant?: "primary" | "secondary" | "dark";
+  class?: string;
+}
+
+const {
+  label = "Solicitar avaliação pelo WhatsApp",
+  message = defaultWhatsAppMessage,
+  variant = "primary",
+  class: className = "",
+} = Astro.props;
+
+const variantClass =
+  variant === "secondary" ? "secondary-button" : variant === "dark" ? "dark-button" : "primary-button";
+---
+
+<a
+  class={`${variantClass} whatsapp-button ${className}`}
+  href={createWhatsAppLink(message)}
+  target="_blank"
+  rel="noopener noreferrer"
+  data-whatsapp-cta={label}
+  aria-label={`${label} em nova aba`}
+>
+  <span>{label}</span>
+</a>

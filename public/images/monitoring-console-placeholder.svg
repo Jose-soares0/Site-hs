@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Interface de monitoramento da HS Seg</title>
+  <desc id="desc">Placeholder visual para substituir por imagem real da central de monitoramento ou operacao da HS Seg.</desc>
+  <rect width="960" height="720" fill="#06080B"/>
+  <rect x="44" y="44" width="872" height="632" rx="36" fill="#151A21" stroke="#2B3440"/>
+  <rect x="82" y="90" width="496" height="318" rx="22" fill="#0B1118" stroke="#2B3440"/>
+  <rect x="608" y="90" width="270" height="146" rx="20" fill="#0E1721" stroke="#2B3440"/>
+  <rect x="608" y="262" width="270" height="146" rx="20" fill="#0E1721" stroke="#2B3440"/>
+  <rect x="82" y="438" width="796" height="184" rx="24" fill="#0E1721" stroke="#2B3440"/>
+  <path d="M126 353L248 218L344 286L424 174L534 332" fill="none" stroke="#0B7CFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="424" cy="174" r="18" fill="#F4B000"/>
+  <circle cx="534" cy="332" r="18" fill="#1FBF75"/>
+  <rect x="630" y="118" width="108" height="16" rx="8" fill="#8D96A3"/>
+  <rect x="630" y="150" width="204" height="12" rx="6" fill="#2B3440"/>
+  <rect x="630" y="178" width="168" height="12" rx="6" fill="#2B3440"/>
+  <circle cx="832" cy="144" r="22" fill="#1FBF75"/>
+  <rect x="630" y="290" width="118" height="16" rx="8" fill="#8D96A3"/>
+  <rect x="630" y="322" width="204" height="12" rx="6" fill="#2B3440"/>
+  <rect x="630" y="350" width="150" height="12" rx="6" fill="#2B3440"/>
+  <circle cx="832" cy="316" r="22" fill="#F4B000"/>
+  <rect x="122" y="480" width="190" height="98" rx="18" fill="#111C27" stroke="#263342"/>
+  <rect x="344" y="480" width="190" height="98" rx="18" fill="#111C27" stroke="#263342"/>
+  <rect x="566" y="480" width="190" height="98" rx="18" fill="#111C27" stroke="#263342"/>
+  <text x="128" y="132" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="28" font-weight="700">Monitoramento ativo</text>
+  <text x="630" y="216" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="22" font-weight="700">Status 24h</text>
+  <text x="630" y="388" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="22" font-weight="700">Alerta verificado</text>
+  <text x="150" y="540" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="22" font-weight="700">CFTV</text>
+  <text x="372" y="540" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="22" font-weight="700">Alarmes</text>
+  <text x="594" y="540" fill="#F7F8FA" font-family="Arial, sans-serif" font-size="22" font-weight="700">Rastreamento</text>
+</svg>
+

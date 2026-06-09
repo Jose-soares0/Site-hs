@@ -1,0 +1,36 @@
+---
+import AboutSection from "@components/AboutSection.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BusinessCondominium from "@components/BusinessCondominium.astro";
+import Faq from "@components/Faq.astro";
+import FinalCta from "@components/FinalCta.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import Hero from "@components/Hero.astro";
+import PartnersSection from "@components/PartnersSection.astro";
+import ProcessTimeline from "@components/ProcessTimeline.astro";
+import ServicesGrid from "@components/ServicesGrid.astro";
+import SocialProof from "@components/SocialProof.astro";
+import SolutionSelector from "@components/SolutionSelector";
+import TrustBar from "@components/TrustBar.astro";
+import VehicleTracking from "@components/VehicleTracking.astro";
+---
+
+<BaseLayout>
+  <Header />
+  <main id="conteudo">
+    <Hero />
+    <TrustBar />
+    <SolutionSelector client:load />
+    <ServicesGrid />
+    <PartnersSection />
+    <ProcessTimeline />
+    <SocialProof />
+    <VehicleTracking />
+    <BusinessCondominium />
+    <AboutSection />
+    <Faq />
+    <FinalCta />
+  </main>
+  <Footer />
+</BaseLayout>

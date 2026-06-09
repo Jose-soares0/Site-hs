@@ -1,0 +1,28 @@
+---
+import { faqs } from "@data/faqs";
+---
+
+<section id="faq" class="section-space bg-white">
+  <div class="section-shell grid gap-10 lg:grid-cols-[0.58fr_1fr]">
+    <div>
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 class="section-title mt-4">Dúvidas que aparecem antes de pedir uma avaliação.</h2>
+      <p class="lead-text mt-5">
+        Respostas curtas reduzem atrito e deixam o WhatsApp para o que importa: entender o caso real do cliente.
+      </p>
+    </div>
+
+    <div class="grid gap-3">
+      {faqs.map((faq) => (
+        <details class="group rounded-2xl border border-gray-line bg-white p-5 shadow-[0_12px_34px_rgba(6,8,11,0.05)]">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-5 font-display text-lg font-black text-black-hs">
+            {faq.question}
+            <span class="grid size-8 shrink-0 place-items-center rounded-full bg-black-hs text-sm text-white transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-4 leading-7 text-gray-600">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,72 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+
+const benefits = [
+  "Localização em tempo real",
+  "Histórico de rotas",
+  "Alertas de movimentação",
+  "Bloqueio conforme solução contratada",
+  "Monitoramento 24h",
+  "Mais controle sobre veículos e frotas",
+];
+---
+
+<section id="rastreamento" class="section-space bg-black-hs text-white">
+  <div class="section-shell grid gap-12 lg:grid-cols-[0.92fr_1fr] lg:items-center">
+    <div>
+      <p class="eyebrow">Rastreamento veicular</p>
+      <h2 class="section-title mt-4 text-white">Controle o trajeto, acompanhe alertas e reduza o risco sobre seus veículos.</h2>
+      <p class="mt-5 text-lg leading-8 text-white/70">
+        Para carro, moto ou frota, o rastreamento transforma localização em tomada de decisão. O cliente enxerga o que está acontecendo e fala com a HS Seg quando precisa agir.
+      </p>
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+        {benefits.map((benefit) => (
+          <div class="rounded-2xl border border-white/12 bg-white/6 px-4 py-3">
+            <span class="text-sm font-bold text-white/84">{benefit}</span>
+          </div>
+        ))}
+      </div>
+      <WhatsAppButton
+        class="mt-9"
+        label="Quero rastrear meu veículo"
+        message="Olá, vim pelo site da HS Seg. Quero rastrear meu veículo ou frota e gostaria de saber planos e instalação."
+      />
+    </div>
+
+    <div class="relative min-h-[480px] overflow-hidden rounded-[28px] border border-white/12 bg-[#0b1118] p-6 shadow-panel">
+      <div class="absolute inset-0 opacity-60" style="background-image: linear-gradient(rgba(247,248,250,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(247,248,250,.06) 1px, transparent 1px); background-size: 42px 42px;"></div>
+      <div class="relative z-10 h-full min-h-[420px] rounded-3xl border border-white/10 bg-gradient-to-br from-blue-monitoring/12 to-transparent p-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <p class="text-xs font-black uppercase text-blue-100">Painel de rastreamento</p>
+            <h3 class="mt-2 font-display text-2xl font-black">Veículo online</h3>
+          </div>
+          <span class="rounded-full bg-green-confirmation/15 px-3 py-1 text-xs font-black text-green-200">SINAL ATIVO</span>
+        </div>
+
+        <div class="relative mt-12 h-64 rounded-3xl border border-white/10 bg-black-hs/52">
+          <span class="absolute left-[22%] top-[44%] size-4 rounded-full bg-gray-line"></span>
+          <span class="signal-ring left-[calc(22%-68px)] top-[calc(44%-68px)] size-36"></span>
+          <span class="signal-ring left-[calc(22%-96px)] top-[calc(44%-96px)] size-48" style="animation-delay: .35s"></span>
+          <div class="absolute left-[22%] top-[44%] translate-x-5 -translate-y-8 rounded-2xl border border-gray-line/40 bg-black-hs px-4 py-3">
+            <p class="text-xs font-black uppercase text-gray-line">Última posição</p>
+            <p class="mt-1 text-sm font-bold text-white/82">Teresina, PI</p>
+          </div>
+          <div class="absolute bottom-5 right-5 rounded-2xl border border-white/12 bg-white/6 p-4">
+            <p class="text-xs font-black uppercase text-white/48">Histórico</p>
+            <p class="mt-1 font-display text-xl font-black">Rotas registradas</p>
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          {["Velocidade", "Alertas", "Rotas"].map((item) => (
+            <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+              <p class="text-xs font-black uppercase text-white/44">{item}</p>
+              <p class="mt-2 font-display text-lg font-black">Monitorado</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

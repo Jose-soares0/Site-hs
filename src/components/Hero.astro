@@ -1,0 +1,30 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+---
+
+<section id="topo" class="dark-surface min-h-screen pt-24">
+  <div class="section-shell relative z-10 flex min-h-[calc(100vh-6rem)] items-center pb-14">
+    <div class="max-w-5xl">
+      <h1 class="display-title max-w-4xl text-[clamp(3.3rem,8vw,7.4rem)] leading-[0.98] text-white">
+        Somos a sua segurança 24hrs
+      </h1>
+      <p class="mt-7 max-w-3xl text-lg leading-8 text-white/74">
+        Segurança de verdade é ter quem monitora, acompanha e age. Seu patrimônio com tecnologia avançada, monitoramento constante e suporte local especializado.
+      </p>
+
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <WhatsAppButton />
+        <a class="secondary-button" href="#solucoes">Ver soluções</a>
+      </div>
+
+      <div class="mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
+        {["8 anos de experiência", "Monitoramento 24h", "Atendimento no Piauí"].map((item) => (
+          <div class="rounded-2xl border border-white/12 bg-white/6 px-4 py-3">
+            <span class="mb-2 block h-1 w-8 rounded-full bg-gray-line"></span>
+            <span class="text-sm font-bold text-white/84">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

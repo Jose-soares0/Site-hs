@@ -1,0 +1,84 @@
+---
+import "@styles/global.css";
+import { faqs } from "@data/faqs";
+import { services } from "@data/services";
+import { site } from "@data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "HS Seg | Segurança Eletrônica, Monitoramento 24h e Rastreamento no Piauí",
+  description = "Segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí para casas, empresas, condomínios e veículos.",
+} = Astro.props;
+
+const serviceSchema = services.slice(0, 4).map((service) => ({
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  areaServed: site.region,
+  provider: {
+    "@type": "LocalBusiness",
+    name: site.name,
+  },
+}));
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: site.legalName,
+    description,
+    areaServed: [site.city, site.region],
+    telephone: site.phone,
+    email: site.email,
+    address: site.address,
+    url: Astro.url.origin,
+    sameAs: [site.instagramUrl],
+    makesOffer: serviceSchema,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#06080B" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/images/logo-hs.png" />
+    <link rel="apple-touch-icon" href="/images/logo-hs.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content="/images/logo-hs.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <slot />
+  </body>
+</html>
