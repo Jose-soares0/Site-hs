@@ -13,7 +13,7 @@ export type Solution = {
 export const solutions: Solution[] = [
   {
     key: "casa",
-    label: "Casa",
+    label: "Residência",
     title: "Segurança eletrônica para proteger sua casa",
     description:
       "Proteção residencial com câmeras, cerca elétrica e concertina para reforçar pontos vulneráveis e aumentar o controle da rotina.",
@@ -27,11 +27,11 @@ export const solutions: Solution[] = [
     label: "Empresa",
     title: "Monitoramento e segurança eletrônica para empresas",
     description:
-      "Soluções para empresas que precisam de monitoramento 24h, sistema de alarmes e câmeras para reduzir riscos e acompanhar áreas sensíveis.",
-    benefits: ["Monitoramento 24h", "Sistema de alarmes", "Câmeras para áreas críticas"],
-    recommended: ["Monitoramento 24h", "Sistema de alarmes", "Câmeras de segurança"],
+      "Soluções para empresas que precisam de monitoramento 24h, segurança eletrônica e câmeras para reduzir riscos e acompanhar áreas sensíveis.",
+    benefits: ["Monitoramento 24h", "Segurança eletrônica", "Câmeras para áreas críticas"],
+    recommended: ["Monitoramento 24h", "Segurança eletrônica", "Câmeras de segurança"],
     message:
-      "Olá, vim pelo site da HS Seg. Quero proteger uma empresa. Tenho interesse em monitoramento 24h, sistema de alarmes e câmeras.",
+      "Olá, vim pelo site da HS Seg. Quero proteger uma empresa. Tenho interesse em monitoramento 24h, segurança eletrônica e câmeras.",
   },
   {
     key: "condominio",
@@ -56,4 +56,3 @@ export const solutions: Solution[] = [
       "Olá, vim pelo site da HS Seg. Quero rastreamento veicular para carro, moto ou frota. Gostaria de saber planos, instalação e cobertura em todo o Brasil.",
   },
 ];
-

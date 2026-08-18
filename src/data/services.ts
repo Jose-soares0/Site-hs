@@ -26,13 +26,13 @@ export const services: Service[] = [
       "Olá, vim pelo site da HS Seg. Tenho interesse em câmeras de segurança e gostaria de uma avaliação.",
   },
   {
-    title: "Sistemas de alarme",
-    label: "ALM",
+    title: "Segurança eletrônica",
+    label: "SEG",
     description:
-      "Sensores, sirenes e acionamentos conectados a uma operação preparada para acompanhar alertas.",
-    cta: "Cotação de alarme",
+      "Câmeras, sensores, cercas e controle conectados a uma operação preparada para acompanhar cada alerta.",
+    cta: "Avaliar segurança",
     message:
-      "Olá, vim pelo site da HS Seg. Quero instalar ou melhorar um sistema de alarme.",
+      "Olá, vim pelo site da HS Seg. Quero uma avaliação de segurança eletrônica para meu imóvel.",
   },
   {
     title: "Rastreamento veicular",
@@ -45,9 +45,9 @@ export const services: Service[] = [
   },
   {
     title: "Segurança residencial",
-    label: "CASA",
+    label: "RES",
     description:
-      "Proteção para rotina familiar com alarme, câmeras e acompanhamento pelo celular.",
+      "Proteção para a rotina familiar com monitoramento, câmeras e acompanhamento pelo celular.",
     cta: "Proteger residência",
     message:
       "Olá, vim pelo site da HS Seg. Quero proteger minha residência com segurança eletrônica.",
@@ -80,4 +80,3 @@ export const services: Service[] = [
       "Olá, vim pelo site da HS Seg. Tenho interesse em controle de acesso.",
   },
 ];
-
