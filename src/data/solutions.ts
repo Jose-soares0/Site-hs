@@ -27,7 +27,7 @@ export const solutions: Solution[] = [
     label: "Empresa",
     title: "Monitoramento e segurança eletrônica para empresas",
     description:
-      "Soluções para empresas que precisam de monitoramento 24h, segurança eletrônica e câmeras para reduzir riscos e acompanhar áreas sensíveis.",
+      "Soluções para empresas que precisam de monitoramento 24h através do nosso sistema de alarme com a melhor tecnologia do mercado.",
     benefits: ["Monitoramento 24h", "Segurança eletrônica", "Câmeras para áreas críticas"],
     recommended: ["Monitoramento 24h", "Segurança eletrônica", "Câmeras de segurança"],
     message:

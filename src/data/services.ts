@@ -44,7 +44,7 @@ export const services: Service[] = [
       "Olá, vim pelo site da HS Seg. Quero rastreamento veicular para carro, moto ou frota.",
   },
   {
-    title: "Segurança residencial",
+    title: "Residência",
     label: "RES",
     description:
       "Proteção para a rotina familiar com monitoramento, câmeras e acompanhamento pelo celular.",
