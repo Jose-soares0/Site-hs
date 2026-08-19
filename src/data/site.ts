@@ -1,16 +1,16 @@
 export const site = {
-  name: "HS Seg",
-  legalName: "HS Seg 24h | Segurança Eletrônica",
+  name: "HS SEG",
+  legalName: "HS SEG 24h | Segurança Eletrônica",
   description:
     "Segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí para casas, empresas, condomínios e veículos.",
   region: "Piauí",
   city: "Teresina",
   instagramHandle: "hs.segpi",
   instagramUrl: "https://www.instagram.com/hs.segpi/",
-  whatsappNumber: "[WHATSAPP_NUMBER]",
-  phone: "[TELEFONE]",
-  email: "[EMAIL]",
-  address: "[ENDERECO]",
+  whatsappNumber: "5586999437946",
+  phone: "(86) 99943-7946",
+  email: "",
+  address: "",
   logo: "/images/logo-hs.png",
 };
 

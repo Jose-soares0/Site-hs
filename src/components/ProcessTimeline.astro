@@ -1,22 +1,27 @@
 ---
 const steps = [
   {
+    phase: "Diagnóstico",
     title: "Avaliação da necessidade",
     description: "Entendimento do imóvel, veículo, rotina e pontos mais sensíveis antes de indicar equipamentos.",
   },
   {
+    phase: "Projeto",
     title: "Projeto da solução",
     description: "Definição de câmeras, alarmes, sensores, rastreamento e acompanhamento conforme o risco real.",
   },
   {
+    phase: "Execução",
     title: "Instalação dos equipamentos",
     description: "Equipe técnica executa a instalação com foco em funcionamento, visibilidade e uso no dia a dia.",
   },
   {
+    phase: "Operação",
     title: "Monitoramento e acompanhamento",
     description: "Alertas e sinais são acompanhados conforme o serviço contratado e os procedimentos definidos.",
   },
   {
+    phase: "Suporte",
     title: "Suporte quando precisar",
     description: "Atendimento local para orientar ajustes, dúvidas e evolução da proteção ao longo do tempo.",
   },
@@ -28,18 +33,18 @@ const steps = [
     <div class="max-w-3xl">
       <p class="eyebrow">Como funciona</p>
       <h2 class="section-title mt-4 text-white">Do primeiro contato ao monitoramento ativo.</h2>
-      <p class="mt-5 text-lg leading-8 text-white/70">
-        O processo precisa mostrar método: detectar, verificar, acionar e proteger. Segurança forte não nasce de improviso.
+      <p class="mt-5 text-lg leading-8 text-white/70" data-section-copy>
+        Da avaliação ao suporte, cada etapa organiza a proteção para detectar, verificar e responder com mais clareza.
       </p>
     </div>
 
-    <div class="timeline-track relative mt-14 grid gap-5">
+    <div class="timeline-track relative mt-14 grid">
+      <span class="timeline-progress-line" aria-hidden="true"></span>
       {steps.map((step, index) => (
-        <article class="timeline-step grid gap-4 rounded-3xl border border-white/12 bg-white/6 p-5 backdrop-blur md:grid-cols-[96px_1fr] md:p-6">
-          <div class="flex items-center gap-4 md:block">
-            <span class="grid size-14 place-items-center rounded-2xl bg-gray-line font-display text-lg font-black text-black-hs">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+        <article class="timeline-step grid gap-4 border-t border-white/14 py-7 md:grid-cols-[120px_1fr] md:py-8">
+          <div class="timeline-step__index flex items-baseline gap-3">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <small>{step.phase}</small>
           </div>
           <div>
             <h3 class="font-display text-2xl font-black text-white">{step.title}</h3>
@@ -50,26 +55,3 @@ const steps = [
     </div>
   </div>
 </section>
-
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (!reduceMotion) {
-    gsap.from(".timeline-step", {
-      scrollTrigger: {
-        trigger: ".timeline-track",
-        start: "top 78%",
-      },
-      autoAlpha: 0,
-      y: 24,
-      duration: 0.65,
-      stagger: 0.12,
-      ease: "power3.out",
-    });
-  }
-</script>

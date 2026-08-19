@@ -16,6 +16,7 @@ export default function SolutionSelector() {
     () => solutions.find((solution) => solution.key === activeKey) ?? solutions[0],
     [activeKey],
   );
+  const activeIndex = solutions.findIndex((solution) => solution.key === activeKey) + 1;
   const whatsappLink = createWhatsAppLink(activeSolution.message);
 
   return (
@@ -23,11 +24,11 @@ export default function SolutionSelector() {
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1fr] lg:items-end">
           <div>
-            <p className="eyebrow">Seletor inteligente</p>
-            <h2 className="section-title mt-4 text-black-hs">Encontre a proteção certa para o que você precisa cuidar.</h2>
+            <p className="eyebrow">Por onde começar</p>
+            <h2 className="section-title mt-4 text-black-hs">O que você precisa proteger?</h2>
           </div>
           <p className="lead-text">
-            O cliente não precisa decorar nome de equipamento. Ele escolhe o que quer proteger, entende o caminho e já chama a HS Seg com uma mensagem pronta.
+            Selecione o ambiente para comparar os serviços mais usados em cada cenário e iniciar uma avaliação com a equipe da HS SEG.
           </p>
         </div>
 
@@ -39,7 +40,7 @@ export default function SolutionSelector() {
 
               return (
                 <button
-                  className={`flex items-center gap-4 rounded-2xl border p-4 text-left transition ${
+                  className={`solution-choice flex items-center gap-4 rounded-lg border p-4 text-left transition ${
                     isActive
                       ? "border-gray-metal bg-gray-line text-black-hs shadow-xl shadow-gray-metal/20"
                       : "border-gray-line bg-white text-black-hs hover:border-blue-monitoring hover:bg-blue-monitoring/5"
@@ -49,8 +50,8 @@ export default function SolutionSelector() {
                   onClick={() => setActiveKey(solution.key)}
                 >
                   <span
-                    className={`grid size-11 shrink-0 place-items-center rounded-xl ${
-                      isActive ? "bg-black-hs text-white" : "bg-black-hs text-white"
+                    className={`solution-choice__icon grid size-11 shrink-0 place-items-center rounded-lg ${
+                      isActive ? "border-black-hs bg-black-hs text-white" : "border-gray-line bg-white-shield text-black-hs"
                     }`}
                     aria-hidden="true"
                   >
@@ -67,10 +68,13 @@ export default function SolutionSelector() {
             })}
           </div>
 
-          <div className="technical-card overflow-hidden">
+          <div className="solution-panel technical-card overflow-hidden" key={activeKey}>
             <div className="grid gap-0 lg:grid-cols-[1fr_0.9fr]">
               <div className="p-6 sm:p-8">
-                <p className="text-sm font-black uppercase text-blue-monitoring">Solução recomendada</p>
+                <div className="flex items-center justify-between gap-5">
+                  <p className="text-sm font-black uppercase text-blue-monitoring">Recomendação inicial</p>
+                  <span className="font-display text-xs font-black text-gray-metal">0{activeIndex} / 04</span>
+                </div>
                 <h3 className="mt-3 font-display text-2xl font-black leading-tight text-black-hs sm:text-[1.65rem]">{activeSolution.title}</h3>
                 <p className="mt-4 text-base leading-7 text-gray-600">{activeSolution.description}</p>
 
@@ -90,17 +94,18 @@ export default function SolutionSelector() {
               </div>
 
               <div className="bg-black-hs p-6 text-white sm:p-8">
-                <p className="text-sm font-black uppercase text-gray-metal">Serviços indicados</p>
-                <div className="mt-5 grid gap-3">
-                  {activeSolution.recommended.map((item) => (
-                    <div className="rounded-2xl border border-white/12 bg-white/6 p-4" key={item}>
+                <p className="text-sm font-black uppercase text-gray-metal">Serviços mais indicados</p>
+                <div className="solution-recommended-list mt-5 grid">
+                  {activeSolution.recommended.map((item, index) => (
+                    <div className="solution-recommended-row" key={item}>
+                      <span className="text-xs font-black text-gray-metal">0{index + 1}</span>
                       <span className="font-display text-base font-black sm:text-lg">{item}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-7 rounded-2xl border border-blue-monitoring/30 bg-blue-monitoring/10 p-4">
-                  <p className="text-xs font-bold uppercase text-blue-100">Mensagem do WhatsApp</p>
-                  <p className="mt-2 text-sm leading-6 text-white/78">{activeSolution.message}</p>
+                <div className="solution-operational-note mt-8 border-t border-white/14 pt-5">
+                  <p className="text-xs font-black uppercase text-gray-metal">Próximo passo</p>
+                  <p className="mt-2 text-sm leading-6 text-white/72">A equipe confirma os pontos de instalação, equipamentos e prazo durante a avaliação.</p>
                 </div>
               </div>
             </div>

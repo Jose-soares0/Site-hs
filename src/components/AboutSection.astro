@@ -4,27 +4,32 @@ import WhatsAppButton from "./WhatsAppButton.astro";
 
 <section id="quem-somos" class="section-space bg-white-shield">
   <div class="section-shell grid gap-12 lg:grid-cols-[0.9fr_1fr] lg:items-center">
-    <div class="overflow-hidden rounded-[28px] border border-gray-line bg-white shadow-panel">
+    <div class="about-media overflow-hidden rounded-lg border border-gray-line bg-white shadow-panel">
       <img
-        class="aspect-[3/2] w-full object-cover object-center"
-        src="/images/hero-fachada-hs-seg.jpg"
-        alt="Fachada da HS Seg no Piauí"
+        class="about-image aspect-[3/2] w-full object-cover object-center"
+        src="/images/fachada-marca-hs-seg.jpg"
+        alt="Detalhe da marca HS SEG instalada na fachada"
         loading="lazy"
         width="900"
         height="1600"
       />
     </div>
 
-    <div>
-      <p class="eyebrow">Sobre a HS Seg</p>
-      <h2 class="section-title mt-4">8 anos protegendo o que tem valor com confiança construída na prática.</h2>
+    <div class="about-content">
+      <p class="eyebrow">Sobre a HS SEG</p>
+      <h2 class="section-title mt-4">8 anos de atuação no Piauí, com equipe local e serviço acompanhado de perto.</h2>
       <p class="lead-text mt-5">
-        A HS Seg atua com segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí. A proposta do site é mostrar uma empresa local, técnica e preparada para proteger casas, empresas, condomínios e veículos com tecnologia e atendimento próximo.
+        A HS SEG atua com segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí, unindo equipe técnica, tecnologia e atendimento próximo para proteger casas, empresas, condomínios e veículos.
       </p>
       <p class="mt-5 text-base leading-7 text-gray-600">
-        Presença local, atendimento próximo e uma operação preparada para acompanhar cada etapa da proteção.
+        A equipe avalia o local, instala os equipamentos e permanece disponível para ajustes e suporte depois da entrega.
       </p>
-      <WhatsAppButton class="mt-8" label="Falar com a HS Seg" />
+      <div class="about-facts mt-7 grid sm:grid-cols-3">
+        <div><strong>8 anos</strong><span>de atuação</span></div>
+        <div><strong>Teresina</strong><span>e região</span></div>
+        <div><strong>24h</strong><span>de monitoramento</span></div>
+      </div>
+      <WhatsAppButton class="mt-8" label="Falar com a HS SEG" />
     </div>
   </div>
 </section>

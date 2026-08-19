@@ -10,5 +10,5 @@ export const createWhatsAppLink = (message: string, number = site.whatsappNumber
 };
 
 export const defaultWhatsAppMessage =
-  "Olá, vim pelo site da HS Seg. Quero entender qual solução protege melhor minha casa, empresa ou veículo. Gostaria de uma avaliação.";
+  "Olá, vim pelo site da HS SEG. Quero entender qual solução protege melhor minha casa, empresa ou veículo. Gostaria de uma avaliação.";
 

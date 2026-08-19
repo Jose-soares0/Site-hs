@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-  title = "HS Seg | Segurança Eletrônica, Monitoramento 24h e Rastreamento no Piauí",
+  title = "HS SEG | Segurança Eletrônica, Monitoramento 24h e Rastreamento no Piauí",
   description = "Segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí para casas, empresas, condomínios e veículos.",
 } = Astro.props;
 
@@ -25,20 +25,24 @@ const serviceSchema = services.slice(0, 4).map((service) => ({
   },
 }));
 
+const hasRealValue = (value: string) => value.length > 0 && !value.includes("[");
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: site.legalName,
+  description,
+  areaServed: [site.city, site.region],
+  ...(hasRealValue(site.phone) ? { telephone: site.phone } : {}),
+  ...(hasRealValue(site.email) ? { email: site.email } : {}),
+  ...(hasRealValue(site.address) ? { address: site.address } : {}),
+  url: Astro.url.origin,
+  sameAs: [site.instagramUrl],
+  makesOffer: serviceSchema,
+};
+
 const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: site.legalName,
-    description,
-    areaServed: [site.city, site.region],
-    telephone: site.phone,
-    email: site.email,
-    address: site.address,
-    url: Astro.url.origin,
-    sameAs: [site.instagramUrl],
-    makesOffer: serviceSchema,
-  },
+  localBusinessSchema,
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",

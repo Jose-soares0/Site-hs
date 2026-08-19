@@ -3,13 +3,17 @@ import WhatsAppButton from "./WhatsAppButton.astro";
 ---
 
 <section id="contato" class="dark-surface py-20">
-  <div class="section-shell relative z-10 text-center">
-    <p class="eyebrow">Avaliação pelo WhatsApp</p>
-    <h2 class="section-title mx-auto mt-4 max-w-4xl text-white">Quer saber qual solução protege melhor sua casa, empresa ou veículo?</h2>
-    <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/70">
-      Fale com a HS Seg e receba uma avaliação para entender o que faz sentido para sua rotina, seu patrimônio e seu nível de risco.
-    </p>
-    <WhatsAppButton class="mt-9" label="Falar com especialista no WhatsApp" />
+  <div class="final-cta-content section-shell relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+    <div>
+      <p class="eyebrow">Avaliação pelo WhatsApp</p>
+      <h2 class="section-title mt-4 max-w-4xl text-white">Quer saber qual solução protege melhor sua casa, empresa ou veículo?</h2>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-white/70">
+        Conte o que você precisa proteger. A equipe da HS SEG avalia o cenário e orienta os próximos passos.
+      </p>
+    </div>
+    <div class="final-cta-action border-l border-white/16 pl-0 lg:pl-8">
+      <p class="mb-4 text-sm font-semibold text-white/58">Atendimento em Teresina e região</p>
+      <WhatsAppButton label="Falar com especialista" />
+    </div>
   </div>
 </section>
-

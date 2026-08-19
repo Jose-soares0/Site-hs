@@ -5,18 +5,18 @@ import WhatsAppButton from "./WhatsAppButton.astro";
 
 <header class="site-header fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black-hs/88 backdrop-blur-xl">
   <div class="section-shell flex h-20 items-center justify-between gap-5">
-    <a href="#topo" class="flex items-center gap-3" aria-label="HS Seg - início">
-      <span class="grid size-14 place-items-center overflow-hidden rounded-xl border border-white/15 bg-black shadow-lg">
-        <img class="size-12 object-contain" src="/images/logo-hs.png" alt="Logo HS Seg" />
+    <a href="#topo" class="flex items-center gap-3" aria-label="HS SEG - início">
+      <span class="grid size-14 place-items-center overflow-hidden rounded-lg border border-white/15 bg-black shadow-lg">
+        <img class="size-12 object-contain" src="/images/logo-hs.png" alt="Logo HS SEG" />
       </span>
       <span class="leading-tight text-white">
-        <span class="block font-display text-lg font-black tracking-normal">HS Seg</span>
+        <span class="block font-display text-lg font-black tracking-normal">HS SEG</span>
       </span>
     </a>
 
     <nav class="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
       {navigation.map((item) => (
-        <a class="text-sm font-semibold text-white transition hover:text-gray-line" href={item.href}>
+        <a class="nav-link text-sm font-semibold text-white transition hover:text-gray-line" href={item.href}>
           {item.label}
         </a>
       ))}
@@ -27,7 +27,7 @@ import WhatsAppButton from "./WhatsAppButton.astro";
     </div>
 
     <button
-      class="grid size-11 place-items-center rounded-xl border border-white/15 text-white lg:hidden"
+      class="grid size-11 place-items-center rounded-lg border border-white/15 text-white lg:hidden"
       type="button"
       data-menu-toggle
       aria-expanded="false"
@@ -48,6 +48,7 @@ import WhatsAppButton from "./WhatsAppButton.astro";
     </nav>
     <WhatsAppButton class="w-full" />
   </div>
+  <div class="site-progress" aria-hidden="true"><span></span></div>
 </header>
 
 <script>

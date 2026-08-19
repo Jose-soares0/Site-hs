@@ -1,14 +1,16 @@
 ---
 import { navigation, site } from "@data/site";
 import { services } from "@data/services";
+
+const hasRealValue = (value: string) => value.length > 0 && !value.includes("[");
 ---
 
 <footer class="bg-black-hs py-12 text-white">
   <div class="section-shell grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.8fr]">
     <div>
       <div class="flex items-center gap-3">
-        <span class="grid size-16 place-items-center overflow-hidden rounded-xl border border-white/10 bg-black">
-          <img class="size-14 object-contain" src="/images/logo-hs.png" alt="Logo HS Seg" />
+        <span class="grid size-16 place-items-center overflow-hidden rounded-lg border border-white/10 bg-black">
+          <img class="size-14 object-contain" src="/images/logo-hs.png" alt="Logo HS SEG" />
         </span>
         <div>
           <p class="font-display text-xl font-black">{site.name}</p>
@@ -40,15 +42,15 @@ import { services } from "@data/services";
     <div>
       <p class="font-display font-black">Contato</p>
       <div class="mt-4 grid gap-3 text-sm text-white/62">
-        <span>WhatsApp: {site.whatsappNumber}</span>
-        <span>Telefone: {site.phone}</span>
-        <span>Endereço: {site.address}</span>
+        {hasRealValue(site.phone) && <a href={`tel:${site.phone.replace(/\D/g, "")}`}>{site.phone}</a>}
+        <span>Teresina e região, Piauí</span>
+        {hasRealValue(site.address) && <span>{site.address}</span>}
         <a class="transition hover:text-white" href={site.instagramUrl} target="_blank" rel="noopener noreferrer">{site.instagramHandle}</a>
       </div>
     </div>
   </div>
 
   <div class="section-shell mt-10 border-t border-white/10 pt-6 text-sm text-white/42">
-    © {new Date().getFullYear()} HS Seg. Todos os direitos reservados.
+    © {new Date().getFullYear()} HS SEG. Todos os direitos reservados.
   </div>
 </footer>

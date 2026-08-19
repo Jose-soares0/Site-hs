@@ -1,6 +1,6 @@
 export type Service = {
   title: string;
-  label: string;
+  icon: "monitoring" | "camera" | "security" | "tracking" | "home" | "business" | "condominium" | "access";
   description: string;
   cta: string;
   message: string;
@@ -9,74 +9,74 @@ export type Service = {
 export const services: Service[] = [
   {
     title: "Monitoramento 24h",
-    label: "24h",
+    icon: "monitoring",
     description:
       "Acompanhamento contínuo para reduzir exposição ao risco e orientar a resposta quando houver ocorrência.",
     cta: "Avaliar monitoramento",
     message:
-      "Olá, vim pelo site da HS Seg. Quero saber mais sobre monitoramento 24h para proteger meu imóvel.",
+      "Olá, vim pelo site da HS SEG. Quero saber mais sobre monitoramento 24h para proteger meu imóvel.",
   },
   {
     title: "Câmeras de segurança",
-    label: "CFTV",
+    icon: "camera",
     description:
       "Projeto, instalação e acompanhamento com imagens estratégicas para residências, lojas e condomínios.",
     cta: "Ver câmeras",
     message:
-      "Olá, vim pelo site da HS Seg. Tenho interesse em câmeras de segurança e gostaria de uma avaliação.",
+      "Olá, vim pelo site da HS SEG. Tenho interesse em câmeras de segurança e gostaria de uma avaliação.",
   },
   {
     title: "Segurança eletrônica",
-    label: "SEG",
+    icon: "security",
     description:
-      "Câmeras, sensores, cercas e controle conectados a uma operação preparada para acompanhar cada alerta.",
+      "Câmeras, sensores, cercas e controle de acesso instalados conforme os pontos vulneráveis do imóvel.",
     cta: "Avaliar segurança",
     message:
-      "Olá, vim pelo site da HS Seg. Quero uma avaliação de segurança eletrônica para meu imóvel.",
+      "Olá, vim pelo site da HS SEG. Quero uma avaliação de segurança eletrônica para meu imóvel.",
   },
   {
     title: "Rastreamento veicular",
-    label: "GPS",
+    icon: "tracking",
     description:
       "Localização, histórico de rotas, alertas e mais controle para carros, motos e frotas.",
     cta: "Rastrear veículo",
     message:
-      "Olá, vim pelo site da HS Seg. Quero rastreamento veicular para carro, moto ou frota.",
+      "Olá, vim pelo site da HS SEG. Quero rastreamento veicular para carro, moto ou frota.",
   },
   {
     title: "Residência",
-    label: "RES",
+    icon: "home",
     description:
-      "Proteção para a rotina familiar com monitoramento, câmeras e acompanhamento pelo celular.",
+      "Com câmeras, concertinas, motor para portão e muito mais!",
     cta: "Proteger residência",
     message:
-      "Olá, vim pelo site da HS Seg. Quero proteger minha residência com segurança eletrônica.",
+      "Olá, vim pelo site da HS SEG. Quero proteger minha residência com segurança eletrônica.",
   },
   {
     title: "Segurança para empresas",
-    label: "B2B",
+    icon: "business",
     description:
-      "CFTV, alarme, acesso e monitoramento para lojas, escritórios e operações locais.",
+      "Alarmes com sensores de presença, monitoramento e fechadura digital para lojas, escritórios e operações locais.",
     cta: "Proteger empresa",
     message:
-      "Olá, vim pelo site da HS Seg. Quero uma avaliação para proteger minha empresa.",
+      "Olá, vim pelo site da HS SEG. Quero uma avaliação para proteger minha empresa.",
   },
   {
     title: "Segurança para condomínios",
-    label: "COND",
+    icon: "condominium",
     description:
       "Soluções para áreas comuns, acessos, perímetro e pontos sensíveis do condomínio.",
     cta: "Avaliar condomínio",
     message:
-      "Olá, vim pelo site da HS Seg. Quero segurança eletrônica para condomínio.",
+      "Olá, vim pelo site da HS SEG. Quero segurança eletrônica para condomínio.",
   },
   {
     title: "Controle de acesso",
-    label: "ID",
+    icon: "access",
     description:
       "Mais controle sobre entradas, circulação e registros para ambientes residenciais e empresariais.",
     cta: "Controlar acesso",
     message:
-      "Olá, vim pelo site da HS Seg. Tenho interesse em controle de acesso.",
+      "Olá, vim pelo site da HS SEG. Tenho interesse em controle de acesso.",
   },
 ];

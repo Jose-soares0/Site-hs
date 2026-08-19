@@ -2,10 +2,10 @@ export const faqs = [
   {
     question: "Quanto custa uma solução de segurança?",
     answer:
-      "O valor depende do tipo de imóvel ou veículo, quantidade de pontos, equipamentos necessários e nível de monitoramento. A HS Seg avalia o cenário antes de indicar a solução.",
+      "O valor depende do tipo de imóvel ou veículo, quantidade de pontos, equipamentos necessários e nível de monitoramento. A HS SEG avalia o cenário antes de indicar a solução.",
   },
   {
-    question: "A HS Seg atende minha região?",
+    question: "A HS SEG atende minha região?",
     answer:
       "A atuação é no Piauí, com foco em Teresina e entorno. Para confirmar atendimento no seu bairro ou cidade, fale pelo WhatsApp.",
   },

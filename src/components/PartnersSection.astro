@@ -1,26 +1,96 @@
 ---
-const partners = ["[PARCEIRO 01]", "[PARCEIRO 02]", "[PARCEIRO 03]", "[PARCEIRO 04]"];
+const partners = [
+  {
+    name: "DaHora Supermercados",
+    image: "/images/partners/dahora-supermercados.jpg",
+    alt: "Ambiente de supermercado",
+    position: "center",
+  },
+  {
+    name: "Giraffas",
+    image: "/images/partners/giraffas.png",
+    alt: "Fachada de uma unidade Giraffas",
+    position: "center",
+  },
+  {
+    name: "Potencial Engenharia",
+    image: "/images/partners/potencial-engenharia.jpg",
+    alt: "Projeto de engenharia em uma obra",
+    position: "center",
+  },
+  {
+    name: "IPS Academia",
+    image: "/images/partners/ips-academia.jpg",
+    alt: "Ambiente interno de academia",
+    position: "center",
+  },
+  {
+    name: "Simplifit Academia",
+    image: "/images/partners/simplifit-academia.png",
+    alt: "Fachada da Simplifit Academia",
+    position: "center",
+  },
+  {
+    name: "CN Motos",
+    image: "/images/partners/cn-motos.jpg",
+    alt: "Fachada da CN Motos",
+    position: "center",
+  },
+  {
+    name: "Igreja Angelim",
+    image: "/images/partners/igreja-angelim.jpg",
+    alt: "Fachada da Igreja Angelim",
+    position: "center",
+  },
+];
+
+const partnerGroups = [partners, partners];
 ---
 
-<section id="parceiros" class="section-space bg-white-shield">
+<section id="parceiros" class="partners-section section-space bg-white-shield">
   <div class="section-shell">
     <div class="grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:items-end">
       <div>
         <p class="eyebrow">Parceiros</p>
-        <h2 class="section-title mt-4">Marcas, clientes e operações que fortalecem a confiança na HS Seg.</h2>
+        <h2 class="section-title mt-4">Empresas e instituições atendidas pela HS SEG.</h2>
       </div>
       <p class="lead-text">
-        Esta área está preparada para receber logos de parceiros, clientes autorizados e empresas atendidas. Use apenas marcas reais, com autorização.
+        Operações de diferentes segmentos onde a segurança eletrônica faz parte da rotina do local.
       </p>
     </div>
+  </div>
 
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {partners.map((partner) => (
-        <div class="grid min-h-28 place-items-center rounded-2xl border border-gray-line bg-white px-5 text-center shadow-[0_12px_34px_rgba(6,8,11,0.05)]">
-          <span class="font-display text-sm font-black text-gray-metal">{partner}</span>
-        </div>
+  <div class="partner-showcase mt-12" role="region" aria-label="Empresas atendidas pela HS SEG">
+    <div class="partner-showcase__track">
+      {partnerGroups.map((group, groupIndex) => (
+        <ul class="partner-showcase__group" aria-hidden={groupIndex === 1 ? "true" : undefined}>
+          {group.map((partner, partnerIndex) => (
+            <li
+              class="partner-showcase__card"
+              tabindex={groupIndex === 0 ? "0" : undefined}
+            >
+              <img
+                class="partner-showcase__image"
+                src={partner.image}
+                alt={groupIndex === 0 ? partner.alt : ""}
+                width="860"
+                height="620"
+                loading="lazy"
+                decoding="async"
+                style={`object-position: ${partner.position};`}
+              />
+              <div class="partner-showcase__shade" aria-hidden="true"></div>
+              <div class="partner-showcase__content">
+                <div class="partner-showcase__meta">
+                  <span>Cliente HS SEG</span>
+                  <span aria-hidden="true">{String(partnerIndex + 1).padStart(2, "0")}</span>
+                </div>
+                <h3>{partner.name}</h3>
+              </div>
+            </li>
+          ))}
+        </ul>
       ))}
     </div>
   </div>
 </section>
-

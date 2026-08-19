@@ -1,17 +1,21 @@
 ---
 const items = [
-  { value: "8 anos", label: "de experiência prática" },
-  { value: "24h", label: "de monitoramento" },
-  { value: "Piauí", label: "atendimento local" },
-  { value: "4 frentes", label: "casa, empresa, condomínio e veículo" },
+  { value: "8 anos", count: 8, suffix: " anos", label: "atuando no Piauí" },
+  { value: "24h", count: 24, suffix: "h", label: "monitoramento contínuo" },
+  { value: "Local", label: "equipe e suporte próximos" },
+  { value: "Brasil", label: "cobertura do rastreamento" },
 ];
 ---
 
 <section class="border-y border-gray-line bg-white">
   <div class="section-shell grid divide-y divide-gray-line sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
     {items.map((item) => (
-      <div class="py-7 sm:px-6">
-        <p class="font-display text-2xl font-black text-black-hs sm:text-[1.65rem]">{item.value}</p>
+      <div class="trust-item py-7 sm:px-6">
+        <p
+          class="font-display text-2xl font-black text-black-hs sm:text-[1.65rem]"
+          data-count={item.count}
+          data-suffix={item.suffix}
+        >{item.value}</p>
         <p class="mt-1 text-sm font-semibold text-gray-500">{item.label}</p>
       </div>
     ))}
