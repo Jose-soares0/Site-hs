@@ -44,7 +44,7 @@
         )
         .from(".hero-image", { scale: 1.12, duration: 1.25 }, "<")
         .from(".hero-badge__line", { scaleX: 0, duration: 0.45, stagger: 0.08 }, "-=0.55")
-        .from(".hero-reticle", { scale: 1.35, autoAlpha: 0, duration: 0.55 }, "-=0.45");
+        .from(".hero-brand-haze", { scale: 0.82, autoAlpha: 0, duration: 0.72 }, "-=0.45");
 
       gsap.to(".site-progress span", {
         scaleX: 1,
@@ -81,25 +81,6 @@
           onToggle: ({ isActive }) => link.classList.toggle("is-active", isActive),
         });
       });
-
-      const heroVisual = document.querySelector<HTMLElement>(".hero-visual");
-      const heroReticle = document.querySelector<HTMLElement>(".hero-reticle");
-
-      if (heroVisual && heroReticle && window.matchMedia("(pointer: fine)").matches) {
-        const moveX = gsap.quickTo(heroReticle, "x", { duration: 0.45, ease: "power3.out" });
-        const moveY = gsap.quickTo(heroReticle, "y", { duration: 0.45, ease: "power3.out" });
-
-        heroVisual.addEventListener("pointermove", (event) => {
-          const bounds = heroVisual.getBoundingClientRect();
-          moveX(event.clientX - bounds.left - bounds.width / 2);
-          moveY(event.clientY - bounds.top - bounds.height / 2);
-        });
-
-        heroVisual.addEventListener("pointerleave", () => {
-          moveX(0);
-          moveY(0);
-        });
-      }
 
       gsap.utils.toArray<HTMLElement>("main section:not(#topo)").forEach((section) => {
         const heading = section.querySelectorAll<HTMLElement>(

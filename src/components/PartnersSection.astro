@@ -14,8 +14,8 @@ const partners = [
   },
   {
     name: "Potencial Engenharia",
-    image: "/images/partners/potencial-engenharia.jpg",
-    alt: "Projeto de engenharia em uma obra",
+    image: "/images/partners/potencial-engenharia-logo.jpg",
+    alt: "Logomarca da Potencial Engenharia",
     position: "center",
   },
   {
@@ -64,7 +64,7 @@ const partnerGroups = [partners, partners];
     <div class="partner-showcase__track">
       {partnerGroups.map((group, groupIndex) => (
         <ul class="partner-showcase__group" aria-hidden={groupIndex === 1 ? "true" : undefined}>
-          {group.map((partner, partnerIndex) => (
+          {group.map((partner) => (
             <li
               class="partner-showcase__card"
               tabindex={groupIndex === 0 ? "0" : undefined}
@@ -78,12 +78,12 @@ const partnerGroups = [partners, partners];
                 loading="lazy"
                 decoding="async"
                 style={`object-position: ${partner.position};`}
+                class:list={{ "partner-showcase__image--logo": partner.image.includes("-logo.") }}
               />
               <div class="partner-showcase__shade" aria-hidden="true"></div>
               <div class="partner-showcase__content">
                 <div class="partner-showcase__meta">
                   <span>Cliente HS SEG</span>
-                  <span aria-hidden="true">{String(partnerIndex + 1).padStart(2, "0")}</span>
                 </div>
                 <h3>{partner.name}</h3>
               </div>
