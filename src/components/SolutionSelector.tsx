@@ -40,6 +40,7 @@ export default function SolutionSelector() {
 
               return (
                 <button
+                  key={solution.key}
                   className={`solution-choice flex items-center gap-4 rounded-lg border p-4 text-left transition ${
                     isActive
                       ? "border-gray-metal bg-gray-line text-black-hs shadow-xl shadow-gray-metal/20"

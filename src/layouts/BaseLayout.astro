@@ -3,15 +3,18 @@ import "@styles/global.css";
 import { faqs } from "@data/faqs";
 import { services } from "@data/services";
 import { site } from "@data/site";
+import FloatingWhatsApp from "@components/FloatingWhatsApp.astro";
 
 interface Props {
   title?: string;
   description?: string;
+  whatsappMessage?: string;
 }
 
 const {
   title = "HS SEG | Segurança Eletrônica, Monitoramento 24h e Rastreamento no Piauí",
   description = "Segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí para casas, empresas, condomínios e veículos.",
+  whatsappMessage,
 } = Astro.props;
 
 const serviceSchema = services.slice(0, 4).map((service) => ({
@@ -71,7 +74,7 @@ const jsonLd = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <meta property="og:title" content={title} />
@@ -84,5 +87,6 @@ const jsonLd = [
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <slot />
+    <FloatingWhatsApp message={whatsappMessage} />
   </body>
 </html>

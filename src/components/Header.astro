@@ -1,11 +1,15 @@
 ---
 import { navigation, site } from "@data/site";
+import { Instagram } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton.astro";
+
+const isHome = Astro.url.pathname === "/";
+const getNavigationHref = (href: string) => (isHome ? href : `/${href}`);
 ---
 
 <header class="site-header fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black-hs/88 backdrop-blur-xl">
   <div class="section-shell flex h-20 items-center justify-between gap-5">
-    <a href="#topo" class="flex items-center gap-3" aria-label="HS SEG - início">
+    <a href={isHome ? "#topo" : "/"} class="flex items-center gap-3" aria-label="HS SEG - início">
       <span class="grid size-14 place-items-center overflow-hidden rounded-lg bg-black">
         <img class="size-12 object-contain" src="/images/logo-hs.png" alt="Logo HS SEG" />
       </span>
@@ -16,13 +20,23 @@ import WhatsAppButton from "./WhatsAppButton.astro";
 
     <nav class="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
       {navigation.map((item) => (
-        <a class="nav-link text-sm font-semibold text-white transition hover:text-gray-line" href={item.href}>
+        <a class="nav-link text-sm font-semibold text-white transition hover:text-gray-line" href={getNavigationHref(item.href)}>
           {item.label}
         </a>
       ))}
     </nav>
 
     <div class="hidden items-center gap-3 lg:flex">
+      <a
+        class="header-social-button"
+        href={site.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir Instagram da HS SEG em nova aba"
+        title="Instagram da HS SEG"
+      >
+        <Instagram size={20} strokeWidth={2} aria-hidden="true" />
+      </a>
       <WhatsAppButton label="WhatsApp" />
     </div>
 
@@ -41,10 +55,18 @@ import WhatsAppButton from "./WhatsAppButton.astro";
   <div id="mobile-menu" class="hidden border-t border-white/10 bg-black-hs px-4 pb-5 lg:hidden" data-mobile-menu>
     <nav class="mx-auto grid max-w-md gap-1 py-4" aria-label="Navegação mobile">
       {navigation.map((item) => (
-        <a class="rounded-xl px-3 py-3 font-semibold text-white/78 hover:bg-white/8 hover:text-white" href={item.href}>
+        <a class="rounded-xl px-3 py-3 font-semibold text-white/78 hover:bg-white/8 hover:text-white" href={getNavigationHref(item.href)}>
           {item.label}
         </a>
       ))}
+      <a
+        class="flex items-center gap-3 rounded-xl px-3 py-3 font-semibold text-white/78 hover:bg-white/8 hover:text-white"
+        href={site.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Instagram size={19} aria-hidden="true" /> Instagram
+      </a>
     </nav>
     <WhatsAppButton class="w-full" />
   </div>

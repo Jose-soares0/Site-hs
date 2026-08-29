@@ -27,6 +27,7 @@
 
       intro
         .from(".site-header", { y: -20, autoAlpha: 0, duration: 0.65 })
+        .from(".hero-command__scene", { scale: 1.07, autoAlpha: 0, duration: 1.25 }, "-=0.5")
         .from(
           ".hero-title-line > span",
           { yPercent: 115, rotate: 1.4, duration: 0.9, stagger: 0.09 },
@@ -36,15 +37,7 @@
           [".hero-copy", ".hero-actions", ".hero-badge"],
           { y: 22, autoAlpha: 0, duration: 0.62, stagger: 0.08 },
           "-=0.62",
-        )
-        .from(
-          ".hero-visual",
-          { clipPath: "inset(0 0 100% 0 round 16px)", duration: 1.05 },
-          "-=0.95",
-        )
-        .from(".hero-image", { scale: 1.12, duration: 1.25 }, "<")
-        .from(".hero-badge__line", { scaleX: 0, duration: 0.45, stagger: 0.08 }, "-=0.55")
-        .from(".hero-brand-haze", { scale: 0.82, autoAlpha: 0, duration: 0.72 }, "-=0.45");
+        );
 
       gsap.to(".site-progress span", {
         scaleX: 1,
@@ -53,18 +46,6 @@
           start: 0,
           end: "max",
           scrub: 0.25,
-        },
-      });
-
-      gsap.to(".hero-image", {
-        yPercent: 7,
-        scale: 1.05,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#topo",
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.8,
         },
       });
 
@@ -82,7 +63,7 @@
         });
       });
 
-      gsap.utils.toArray<HTMLElement>("main section:not(#topo)").forEach((section) => {
+      gsap.utils.toArray<HTMLElement>("main section:not(#topo):not(#solucoes)").forEach((section) => {
         const heading = section.querySelectorAll<HTMLElement>(
           ".eyebrow, .section-title, .lead-text, [data-section-copy]",
         );
@@ -105,7 +86,6 @@
 
       const cardSelectors = [
         ".trust-item",
-        ".solution-choice",
         ".service-card",
         ".tracking-benefit",
         ".business-card",
@@ -281,5 +261,11 @@
     return () => context.revert();
   };
 
-  initializeMotion();
+  const startMotion = () => window.requestAnimationFrame(initializeMotion);
+
+  if (document.readyState === "complete") {
+    startMotion();
+  } else {
+    window.addEventListener("load", startMotion, { once: true });
+  }
 </script>

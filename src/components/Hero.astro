@@ -2,44 +2,31 @@
 import WhatsAppButton from "./WhatsAppButton.astro";
 ---
 
-<section id="topo" class="dark-surface min-h-screen pt-24">
-  <div class="section-shell relative z-10 grid min-h-[calc(100vh-6rem)] items-center gap-12 py-14 lg:grid-cols-[1fr_0.72fr] lg:gap-14">
-    <div class="max-w-3xl">
-      <h1 class="display-title max-w-4xl text-[clamp(2.25rem,5vw,4.6rem)] leading-[1.06] text-white">
-        <span class="hero-title-line"><span>Somos a sua</span></span>
-        <span class="hero-title-line"><span>segurança 24hrs</span></span>
+<section id="topo" class="hero-command dark-surface">
+  <img
+    class="hero-command__scene"
+    src="/images/hero-hs-seg-operacao.webp"
+    alt="Agente da HS SEG em uma central de monitoramento com a marca da empresa"
+    width="1920"
+    height="1080"
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <div class="section-shell hero-command__inner">
+    <div class="hero-command__copy">
+      <h1 class="display-title text-white">
+        <span class="hero-title-line"><span>Proteção ativa,</span></span>
+        <span class="hero-title-line"><span>24 horas por dia.</span></span>
       </h1>
-      <p class="hero-copy mt-7 max-w-3xl text-base leading-8 text-white/74 sm:text-lg">
-        Segurança de verdade é ter quem monitora, acompanha e age. Seu patrimônio com tecnologia avançada, monitoramento constante e suporte local especializado.
+      <p class="hero-copy">
+        Monitoramento, segurança eletrônica e rastreamento veicular com suporte local no Piauí.
       </p>
 
-      <div class="hero-actions mt-9 flex flex-col gap-3 sm:flex-row">
+      <div class="hero-actions">
         <WhatsAppButton />
         <a class="secondary-button" href="#solucoes">Ver soluções</a>
       </div>
-
-      <div class="hero-assurance mt-10 grid max-w-3xl sm:grid-cols-3">
-        {["8 anos de experiência", "Monitoramento 24h", "Atendimento no Piauí"].map((item) => (
-          <div class="hero-badge px-4 py-3">
-            <span class="hero-badge__line mb-2 block h-px w-8 bg-gray-line"></span>
-            <span class="text-sm font-bold text-white/84">{item}</span>
-          </div>
-        ))}
-      </div>
     </div>
-
-    <figure class="hero-visual relative overflow-hidden rounded-lg border border-white/14 bg-graphite shadow-panel">
-      <img
-        class="hero-image aspect-[4/3] h-full w-full object-cover object-center lg:aspect-[4/5]"
-        src="/images/hero-fachada-hs-seg.jpg"
-        alt="Fachada da HS SEG no Piauí com a marca e câmera de segurança instalada"
-        width="900"
-        height="1600"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/24 via-transparent to-transparent"></div>
-      <span class="hero-brand-haze" aria-hidden="true"></span>
-    </figure>
   </div>
 </section>
