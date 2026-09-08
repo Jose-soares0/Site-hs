@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from "./WhatsAppButton.astro";
+import { Check } from "lucide-react";
 ---
 
 <section id="quem-somos" class="section-space bg-white-shield">
@@ -16,14 +17,29 @@ import WhatsAppButton from "./WhatsAppButton.astro";
     </div>
 
     <div class="about-content">
-      <p class="eyebrow">Sobre a HS SEG</p>
-      <h2 class="section-title mt-4">8 anos de atuação no Piauí, com equipe local e serviço acompanhado de perto.</h2>
+      <p class="eyebrow">Por que escolher a HS SEG?</p>
+      <h2 class="section-title mt-4">Proteção local, acompanhamento próximo e resposta 24h.</h2>
       <p class="lead-text mt-5">
         A HS SEG atua com segurança eletrônica, monitoramento 24h e rastreamento veicular no Piauí, unindo equipe técnica, tecnologia e atendimento próximo para proteger casas, empresas, condomínios e veículos.
       </p>
-      <p class="mt-5 text-base leading-7 text-gray-600">
-        A equipe avalia o local, instala os equipamentos e permanece disponível para ajustes e suporte depois da entrega.
-      </p>
+      <ul class="about-reasons" aria-label="Motivos para escolher a HS SEG">
+        <li class="about-reason">
+          <Check size={19} strokeWidth={2.5} aria-hidden="true" />
+          <span>Atendimento local para entender a rotina e os pontos vulneráveis do seu imóvel.</span>
+        </li>
+        <li class="about-reason">
+          <Check size={19} strokeWidth={2.5} aria-hidden="true" />
+          <span>Monitoramento contínuo e suporte para você ter mais controle quando precisar.</span>
+        </li>
+        <li class="about-reason">
+          <Check size={19} strokeWidth={2.5} aria-hidden="true" />
+          <span>Projeto e instalação definidos conforme a necessidade de cada ambiente.</span>
+        </li>
+        <li class="about-reason">
+          <Check size={19} strokeWidth={2.5} aria-hidden="true" />
+          <span>Acompanhamento próximo depois da entrega para manter a proteção funcionando.</span>
+        </li>
+      </ul>
       <div class="about-facts mt-7 grid sm:grid-cols-3">
         <div><strong>8 anos</strong><span>de atuação</span></div>
         <div><strong>Teresina</strong><span>e região</span></div>

@@ -742,6 +742,27 @@ select {
   transform: scale(1.035);
 }
 
+.about-reasons {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.about-reason {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  color: #1f2937;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.about-reason svg {
+  margin-top: 2px;
+  color: #c99f16;
+}
+
 .faq-item:hover,
 .faq-item[open] {
   border-color: rgba(141, 150, 163, 0.72);
