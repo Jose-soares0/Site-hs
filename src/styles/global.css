@@ -449,7 +449,7 @@ select {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center 46%;
+  object-position: center top;
   filter: saturate(0.9) contrast(1.02);
   transform: scale(1.015);
 }
@@ -499,6 +499,8 @@ select {
 .service-card {
   position: relative;
   overflow: hidden;
+  min-height: 284px;
+  height: 100%;
   transition:
     border-color 220ms ease,
     box-shadow 220ms ease,
@@ -526,6 +528,11 @@ select {
 
 .service-card:hover::after {
   transform: scaleX(1);
+}
+
+.service-card .service-link {
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 .service-icon,
@@ -788,6 +795,147 @@ select {
   transform: scale(1.035);
 }
 
+.perimeter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.perimeter-layout {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+.perimeter-media {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid rgba(247, 248, 250, 0.18);
+  border-radius: 8px;
+  background: #151a21;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+.perimeter-media::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 8, 11, 0.02) 42%, rgba(6, 8, 11, 0.76) 100%),
+    linear-gradient(90deg, rgba(6, 8, 11, 0.2), transparent 62%);
+  content: "";
+  pointer-events: none;
+}
+
+.perimeter-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.88) contrast(1.04);
+  transition: transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1), filter 600ms ease;
+}
+
+.perimeter-media:hover img {
+  filter: saturate(1) contrast(1.06);
+  transform: scale(1.035);
+}
+
+.perimeter-media__caption {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  border: 1px solid rgba(247, 248, 250, 0.2);
+  border-radius: 999px;
+  background: rgba(6, 8, 11, 0.68);
+  color: rgba(247, 248, 250, 0.82);
+  font-size: 0.74rem;
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+}
+
+.perimeter-media__status {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #1fbf75;
+  box-shadow: 0 0 0 5px rgba(31, 191, 117, 0.12);
+}
+
+.perimeter-copy {
+  max-width: 620px;
+}
+
+.perimeter-points {
+  display: grid;
+  margin-top: 28px;
+  border-top: 1px solid rgba(247, 248, 250, 0.14);
+}
+
+.perimeter-point {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(247, 248, 250, 0.14);
+}
+
+.perimeter-point__label {
+  color: rgba(247, 248, 250, 0.88);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.perimeter-point__value {
+  color: rgba(247, 248, 250, 0.52);
+  font-size: 0.86rem;
+  text-align: right;
+}
+
+@media (min-width: 1024px) {
+  .perimeter-layout {
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+    gap: 64px;
+  }
+
+  .perimeter-media,
+  .perimeter-media img {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  .perimeter-layout {
+    gap: 30px;
+  }
+
+  .perimeter-media,
+  .perimeter-media img {
+    min-height: 300px;
+  }
+
+  .perimeter-media__caption {
+    left: 14px;
+    bottom: 14px;
+  }
+
+  .perimeter-point {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .perimeter-point__value {
+    text-align: left;
+  }
+}
+
 .social-proof-stamp {
   position: absolute;
   z-index: 2;
@@ -938,35 +1086,37 @@ select {
 
 .partner-showcase {
   position: relative;
+  isolation: isolate;
   width: 100%;
   overflow: hidden;
-  padding-block: 24px 30px;
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  padding-block: 24px 40px;
 }
 
 .partner-showcase::before,
 .partner-showcase::after {
   position: absolute;
   z-index: 2;
-  top: 24px;
-  bottom: 30px;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(141, 150, 163, 0.7), transparent);
+  top: 0;
+  bottom: 0;
+  width: clamp(72px, 9vw, 160px);
+  pointer-events: none;
   content: "";
 }
 
 .partner-showcase::before {
   left: 0;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.94) 28%, rgba(255, 255, 255, 0) 100%);
 }
 
 .partner-showcase::after {
   right: 0;
+  background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0.94) 28%, rgba(255, 255, 255, 0) 100%);
 }
 
 .partner-showcase__track {
   display: flex;
   width: max-content;
-  animation: partner-showcase-scroll 42s linear infinite;
+  animation: partner-showcase-scroll 50s linear infinite;
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
@@ -978,9 +1128,9 @@ select {
 
 .partner-showcase__group {
   display: flex;
-  gap: 22px;
+  gap: 24px;
   margin: 0;
-  padding: 0 22px 0 0;
+  padding: 0 24px 0 0;
   list-style: none;
 }
 
@@ -1100,8 +1250,7 @@ select {
 
 @media (max-width: 640px) {
   .partner-showcase {
-    padding-block: 16px 24px;
-    mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    padding-block: 16px 28px;
   }
 
   .partner-showcase__group {
@@ -1157,13 +1306,21 @@ section[id] {
 }
 
 .services-list {
+  display: grid;
+  grid-auto-rows: minmax(284px, auto);
+  align-items: stretch;
   overflow: hidden;
   border-top: 1px solid #d9dee6;
   border-left: 1px solid #d9dee6;
+  border-bottom: 1px solid #d9dee6;
   background: #fff;
 }
 
 .service-card {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 284px;
+  height: auto;
   border-right: 1px solid #d9dee6;
   border-bottom: 1px solid #d9dee6;
   background: #fff;
@@ -1190,6 +1347,10 @@ section[id] {
 
 .service-link:hover svg {
   transform: translate(3px, -3px);
+}
+
+.services-section {
+  padding-bottom: clamp(48px, 6vw, 80px);
 }
 
 .solution-choice {
@@ -1388,6 +1549,18 @@ section[id] {
 }
 
 @media (max-width: 639px) {
+  .services-list {
+    grid-auto-rows: auto;
+  }
+
+  .service-card {
+    min-height: 252px;
+  }
+
+  .services-section {
+    padding-bottom: 56px;
+  }
+
   .floating-whatsapp {
     width: 56px;
     height: 56px;
@@ -1405,7 +1578,7 @@ section[id] {
   }
 
   .hero-command__scene {
-    object-position: 58% center;
+    object-position: 58% top;
     filter: saturate(0.82) contrast(1.03);
   }
 

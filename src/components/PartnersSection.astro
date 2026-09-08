@@ -2,9 +2,9 @@
 const partners = [
   {
     name: "DaHora Supermercados",
-    image: "/images/partners/dahora-supermercados.jpg",
-    alt: "Ambiente de supermercado",
-    position: "center",
+    image: "/images/partners/dahora-supermercados-real.jpg",
+    alt: "Fachada real de uma unidade da DaHora Supermercados no Dirceu, em Teresina",
+    position: "center 38%",
   },
   {
     name: "Giraffas",
@@ -14,32 +14,32 @@ const partners = [
   },
   {
     name: "Potencial Engenharia",
-    image: "/images/partners/potencial-engenharia-logo.jpg",
-    alt: "Logomarca da Potencial Engenharia",
+    image: "/images/partners/potencial-engenharia-real.webp",
+    alt: "Engenheiros usando capacete e analisando uma obra",
     position: "center",
   },
   {
-    name: "IPS Academia",
-    image: "/images/partners/ips-academia.jpg",
-    alt: "Ambiente interno de academia",
+    name: "PS Academia",
+    image: "/images/partners/ps-academia-real.webp",
+    alt: "Aluna treinando em uma estrutura real do PS Training Center",
     position: "center",
   },
   {
     name: "Simplifit Academia",
-    image: "/images/partners/simplifit-academia.png",
+    image: "/images/partners/simplifit-academia-2026.jpg",
     alt: "Fachada da Simplifit Academia",
-    position: "center",
+    position: "left center",
   },
   {
     name: "CN Motos",
-    image: "/images/partners/cn-motos.jpg",
+    image: "/images/partners/cn-motos-2026.webp",
     alt: "Fachada da CN Motos",
-    position: "center",
+    position: "center 58%",
   },
   {
-    name: "Igreja Angelim",
+    name: "Missão Angelim",
     image: "/images/partners/igreja-angelim.jpg",
-    alt: "Fachada da Igreja Angelim",
+    alt: "Fachada real da Igreja Angelim em Teresina",
     position: "center",
   },
 ];
@@ -75,7 +75,7 @@ const partnerGroups = [partners, partners];
                 alt={groupIndex === 0 ? partner.alt : ""}
                 width="860"
                 height="620"
-                loading="lazy"
+                loading={groupIndex === 0 ? "eager" : "lazy"}
                 decoding="async"
                 style={`object-position: ${partner.position};`}
                 class:list={{ "partner-showcase__image--logo": partner.image.includes("-logo.") }}

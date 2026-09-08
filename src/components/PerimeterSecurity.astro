@@ -1,0 +1,51 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+
+const items = [
+  { label: "Linha virtual", value: "Limite configurável" },
+  { label: "Zona de detecção", value: "Leitura inteligente" },
+  { label: "Alerta à central", value: "Resposta imediata" },
+];
+---
+
+<section id="perimetro" class="perimeter-section section-space bg-black-hs text-white">
+  <div class="section-shell">
+    <div class="perimeter-layout">
+      <div class="perimeter-media">
+        <img
+          src="/images/cerca-virtual-deteccao-real.webp"
+          alt="Imagem real de videomonitoramento com linha virtual de detecção, setas de cruzamento e pessoa dentro da zona protegida"
+          width="720"
+          height="480"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="perimeter-media__caption" aria-hidden="true">
+          <span class="perimeter-media__status"></span>
+          <span>Detecção virtual em ação</span>
+        </div>
+      </div>
+
+      <div class="perimeter-copy">
+        <p class="eyebrow">Proteção de perímetro</p>
+        <h2 class="section-title mt-4 text-white">Uma barreira visível antes do risco chegar.</h2>
+        <p class="mt-5 text-lg leading-8 text-white/70">
+          A câmera cria linhas e zonas virtuais na imagem para identificar cruzamentos e avisar a central quando alguém entra em uma área protegida.
+        </p>
+        <div class="perimeter-points" aria-label="Recursos de proteção de perímetro">
+          {items.map((item) => (
+            <div class="perimeter-point">
+              <span class="perimeter-point__label">{item.label}</span>
+              <span class="perimeter-point__value">{item.value}</span>
+            </div>
+          ))}
+        </div>
+        <WhatsAppButton
+          class="mt-9"
+          label="Avaliar meu perímetro"
+          message="Olá, vim pelo site da HS SEG. Quero avaliar a proteção do perímetro do meu imóvel."
+        />
+      </div>
+    </div>
+  </div>
+</section>
