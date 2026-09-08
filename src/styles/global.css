@@ -1309,7 +1309,7 @@ section[id] {
   display: grid;
   grid-auto-rows: minmax(284px, auto);
   align-items: stretch;
-  overflow: hidden;
+  overflow: visible;
   border-top: 1px solid #d9dee6;
   border-left: 1px solid #d9dee6;
   border-bottom: 1px solid #d9dee6;
@@ -1319,8 +1319,9 @@ section[id] {
 .service-card {
   box-sizing: border-box;
   min-width: 0;
-  min-height: 284px;
+  min-height: 292px;
   height: auto;
+  overflow: visible;
   border-right: 1px solid #d9dee6;
   border-bottom: 1px solid #d9dee6;
   background: #fff;
@@ -1554,11 +1555,12 @@ section[id] {
   }
 
   .service-card {
-    min-height: 252px;
+    min-height: 292px;
+    padding-bottom: 28px;
   }
 
   .services-section {
-    padding-bottom: 56px;
+    padding-bottom: 72px;
   }
 
   .floating-whatsapp {
