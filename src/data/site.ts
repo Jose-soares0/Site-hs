@@ -18,7 +18,6 @@ export const navigation = [
   { label: "Serviços", href: "#servicos" },
   { label: "Parceiros", href: "#parceiros" },
   { label: "Quem somos", href: "#quem-somos" },
-  { label: "Casos de cliente", href: "#casos" },
   { label: "Rastreamento", href: "#rastreamento" },
   { label: "FAQ", href: "#faq" },
   { label: "Contato", href: "#contato" },

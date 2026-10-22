@@ -77,21 +77,21 @@ export const services: Service[] = [
     title: "Segurança eletrônica",
     icon: "security",
     description:
-      "Câmeras, sensores, cercas e controle de acesso instalados conforme os pontos vulneráveis do imóvel.",
+      "Câmeras, alarmes, sensores, cercas e concertinas integrados conforme os pontos vulneráveis do imóvel.",
     cta: "Avaliar segurança",
     message:
       "Olá, vim pelo site da HS SEG. Quero uma avaliação de segurança eletrônica para meu imóvel.",
     seoDescription:
-      "Segurança eletrônica em Teresina com câmeras, sensores, cercas e controle de acesso instalados pela HS SEG.",
+      "Segurança eletrônica em Teresina com câmeras, alarmes, sensores, cercas e concertinas instalados pela HS SEG.",
     intro:
       "Camadas de proteção combinadas para cuidar do perímetro, dos acessos e da movimentação dentro do imóvel.",
     highlights: [
       { title: "Proteção por camadas", description: "Equipamentos diferentes trabalham juntos em pontos externos, acessos e áreas internas." },
       { title: "Detecção de movimento", description: "Sensores podem identificar movimentações nos ambientes definidos durante a avaliação." },
-      { title: "Proteção de perímetro", description: "Cercas, concertinas e outros recursos são avaliados conforme o tipo de imóvel." },
-      { title: "Controle conectado", description: "Câmeras, alarmes e acessos são organizados para facilitar o uso diário." },
+      { title: "Proteção de perímetro", description: "Cercas, concertinas e recursos de detecção são avaliados conforme o tipo de imóvel." },
+      { title: "Câmeras integradas", description: "Imagens, alarmes e acessos são organizados para facilitar o uso diário." },
     ],
-    included: ["Avaliação de vulnerabilidades", "Câmeras e sensores", "Proteção de perímetro", "Controle de acesso"],
+    included: ["Avaliação de vulnerabilidades", "Câmeras, alarmes e sensores", "Cercas e concertinas", "Controle de acesso"],
     audience: ["Residências", "Empresas", "Lojas", "Condomínios"],
   },
   {

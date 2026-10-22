@@ -10,9 +10,7 @@ const getNavigationHref = (href: string) => (isHome ? href : `/${href}`);
 <header class="site-header fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black-hs/88 backdrop-blur-xl">
   <div class="section-shell flex h-20 items-center justify-between gap-5">
     <a href={isHome ? "#topo" : "/"} class="flex items-center gap-3" aria-label="HS SEG - início">
-      <span class="grid size-14 place-items-center overflow-hidden rounded-lg bg-black">
-        <img class="size-12 object-contain" src="/images/logo-hs.png" alt="Logo HS SEG" />
-      </span>
+      <img class="size-16 object-contain" src="/images/logo-hs-favicon.png" alt="Logo HS SEG" width="64" height="64" />
       <span class="leading-tight text-white">
         <span class="block font-display text-lg font-black tracking-normal">HS SEG</span>
       </span>
@@ -27,16 +25,6 @@ const getNavigationHref = (href: string) => (isHome ? href : `/${href}`);
     </nav>
 
     <div class="hidden items-center gap-3 lg:flex">
-      <a
-        class="header-social-button"
-        href={site.instagramUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Abrir Instagram da HS SEG em nova aba"
-        title="Instagram da HS SEG"
-      >
-        <Instagram size={20} strokeWidth={2} aria-hidden="true" />
-      </a>
       <WhatsAppButton label="WhatsApp" />
     </div>
 

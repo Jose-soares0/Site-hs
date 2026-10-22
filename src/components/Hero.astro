@@ -3,15 +3,18 @@ import WhatsAppButton from "./WhatsAppButton.astro";
 ---
 
 <section id="topo" class="hero-command dark-surface">
-  <img
-    class="hero-command__scene"
-    src="/images/hero-hs-seg-operacao-v2.webp"
-    alt="Agente da HS SEG em uma central de monitoramento com a marca da empresa"
-    width="1920"
-    height="1080"
-    loading="eager"
-    fetchpriority="high"
-  />
+  <picture>
+    <source media="(max-width: 639px)" srcset="/images/hero-hs-seg-equipe-mobile.webp" />
+    <img
+      class="hero-command__scene"
+      src="/images/hero-hs-seg-equipe.webp"
+      alt="Os dois representantes da HS SEG em uma central de monitoramento"
+      width="1672"
+      height="941"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </picture>
 
   <div class="section-shell hero-command__inner">
     <div class="hero-command__copy">

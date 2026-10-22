@@ -18,7 +18,7 @@ export const solutions: Solution[] = [
     description:
       "Proteção residencial com câmeras, cerca elétrica e concertina para reforçar pontos vulneráveis e aumentar o controle da rotina.",
     benefits: ["Câmeras em pontos estratégicos", "Cerca elétrica para perímetro", "Concertina para reforço físico"],
-    recommended: ["Câmeras de segurança", "Cerca elétrica", "Concertina"],
+    recommended: ["Segurança eletrônica", "Cerca elétrica", "Concertina"],
     message:
       "Olá, vim pelo site da HS SEG. Quero proteger uma casa com segurança eletrônica. Tenho interesse em câmeras, cerca elétrica e concertina.",
   },
@@ -28,8 +28,8 @@ export const solutions: Solution[] = [
     title: "Monitoramento e segurança eletrônica para empresas",
     description:
       "Sistema de alarme monitorado, sensores e câmeras para acompanhar áreas críticas, acessos e ocorrências fora do horário de operação.",
-    benefits: ["Monitoramento 24h", "Segurança eletrônica", "Câmeras para áreas críticas"],
-    recommended: ["Monitoramento 24h", "Segurança eletrônica", "Câmeras de segurança"],
+    benefits: ["Monitoramento 24h", "Segurança eletrônica", "Cobertura de áreas críticas"],
+    recommended: ["Monitoramento 24h", "Segurança eletrônica", "Cobertura de áreas críticas"],
     message:
       "Olá, vim pelo site da HS SEG. Quero proteger uma empresa. Tenho interesse em monitoramento 24h, segurança eletrônica e câmeras.",
   },
@@ -40,7 +40,7 @@ export const solutions: Solution[] = [
     description:
       "Câmeras, porteiro e segurança eletrônica para melhorar o controle de acessos, áreas comuns, garagens e pontos sensíveis do condomínio.",
     benefits: ["Câmeras em áreas comuns", "Porteiro e controle de acesso", "Segurança eletrônica para o condomínio"],
-    recommended: ["Câmeras de segurança", "Porteiro", "Segurança eletrônica"],
+    recommended: ["Segurança eletrônica", "Porteiro", "Controle de acesso"],
     message:
       "Olá, vim pelo site da HS SEG. Quero avaliar segurança eletrônica para condomínio, com câmeras, porteiro e controle de acesso.",
   },

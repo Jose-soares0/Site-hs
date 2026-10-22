@@ -1,19 +1,154 @@
 ---
-import WhatsAppButton from "./WhatsAppButton.astro";
+import { site } from "@data/site";
+import { services } from "@data/services";
 ---
 
-<section id="contato" class="dark-surface py-20">
-  <div class="final-cta-content section-shell relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-    <div>
-      <p class="eyebrow">Avaliação pelo WhatsApp</p>
-      <h2 class="section-title mt-4 max-w-4xl text-white">Quer saber qual solução protege melhor sua casa, empresa ou veículo?</h2>
-      <p class="mt-5 max-w-2xl text-lg leading-8 text-white/70">
-        Conte o que você precisa proteger. A equipe da HS SEG avalia o cenário e orienta os próximos passos.
+<section id="contato" class="dark-surface section-space lead-section">
+  <div class="section-shell relative z-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+    <div class="lead-intro">
+      <p class="eyebrow">Contato</p>
+      <h2 class="section-title mt-4 text-white">Conte o que você precisa proteger.</h2>
+      <p class="mt-5 max-w-lg text-base leading-7 text-white/70">
+        Nossa equipe analisa sua necessidade e orienta a solução mais adequada para sua casa, empresa, condomínio ou veículo.
       </p>
+      <p class="mt-8 text-sm font-semibold text-white/55">Atendimento em Teresina e região</p>
+      <a class="lead-direct-link" href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
+        Prefere conversar agora? Fale no WhatsApp <span aria-hidden="true">↗</span>
+      </a>
     </div>
-    <div class="final-cta-action border-l border-white/16 pl-0 lg:pl-8">
-      <p class="mb-4 text-sm font-semibold text-white/58">Atendimento em Teresina e região</p>
-      <WhatsAppButton label="Falar com especialista" />
-    </div>
+
+    <form
+      id="lead-form"
+      class="lead-form"
+      name="hs-seg-leads"
+      method="POST"
+      action="/__forms.html"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="hs-seg-leads" />
+      <input type="hidden" name="utm_source" />
+      <input type="hidden" name="utm_medium" />
+      <input type="hidden" name="utm_campaign" />
+      <p class="lead-honeypot" aria-hidden="true"><label>Deixe este campo vazio <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+      <p class="lead-form__eyebrow">Solicite uma avaliação</p>
+      <div class="lead-form__grid">
+        <div class="lead-field lead-field--full">
+          <label for="lead-name">Seu nome</label>
+          <input id="lead-name" name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Como podemos chamar você?" />
+        </div>
+
+        <fieldset class="lead-field lead-field--full">
+          <legend>Como prefere deixar seu contato?</legend>
+          <div class="lead-contact-toggle">
+            <label><input type="radio" name="contact_type" value="WhatsApp" checked /><span>WhatsApp</span></label>
+            <label><input type="radio" name="contact_type" value="E-mail" /><span>E-mail</span></label>
+          </div>
+        </fieldset>
+
+        <div class="lead-field lead-field--full">
+          <label for="lead-contact">Seu WhatsApp</label>
+          <input id="lead-contact" name="contact" type="tel" inputmode="tel" autocomplete="tel" maxlength="60" required placeholder="(86) 99999-9999" />
+        </div>
+
+        <div class="lead-field lead-field--full">
+          <label for="lead-service">Qual serviço você procura?</label>
+          <select id="lead-service" name="service" required>
+            <option value="" selected disabled>Selecione um serviço</option>
+            {services.filter((service) => !["cameras-de-seguranca", "controle-de-acesso"].includes(service.slug)).map((service) => (
+              <option value={service.title}>{service.title}</option>
+            ))}
+            <option value="Ainda não sei">Ainda não sei</option>
+          </select>
+        </div>
+
+        <div class="lead-field lead-field--full">
+          <label for="lead-need">Conte um pouco da sua necessidade</label>
+          <textarea id="lead-need" name="need" rows="4" minlength="10" maxlength="1200" required placeholder="O que você quer proteger e onde precisa do serviço?"></textarea>
+        </div>
+      </div>
+
+      <p class="lead-form__privacy">Usaremos estes dados apenas para responder à sua solicitação.</p>
+      <button class="lead-form__submit" type="submit">Enviar e abrir WhatsApp <span aria-hidden="true">↗</span></button>
+      <p id="lead-form-status" class="lead-form__status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
+
+<script define:vars={{ whatsappNumber: site.whatsappNumber }}>
+  const form = document.querySelector("#lead-form");
+  const contact = document.querySelector("#lead-contact");
+  const contactLabel = document.querySelector('label[for="lead-contact"]');
+  const status = document.querySelector("#lead-form-status");
+  const submit = form?.querySelector('button[type="submit"]');
+
+  if (form && contact && contactLabel && status && submit) {
+    const updateContactField = () => {
+      const isEmail = form.elements.contact_type.value === "E-mail";
+      contactLabel.textContent = isEmail ? "Seu e-mail" : "Seu WhatsApp";
+      contact.type = isEmail ? "email" : "tel";
+      contact.inputMode = isEmail ? "email" : "tel";
+      contact.autocomplete = isEmail ? "email" : "tel";
+      contact.placeholder = isEmail ? "voce@exemplo.com" : "(86) 99999-9999";
+      contact.value = "";
+      contact.setCustomValidity("");
+    };
+
+    form.querySelectorAll('input[name="contact_type"]').forEach((radio) => radio.addEventListener("change", updateContactField));
+    contact.addEventListener("input", () => contact.setCustomValidity(""));
+
+    const params = new URLSearchParams(window.location.search);
+    ["utm_source", "utm_medium", "utm_campaign"].forEach((key) => {
+      form.elements[key].value = params.get(key)?.slice(0, 120) ?? "";
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const isEmail = data.get("contact_type") === "E-mail";
+      const contactValue = String(data.get("contact") ?? "").trim();
+      if (!isEmail && contactValue.replace(/\D/g, "").length < 10) {
+        contact.setCustomValidity("Informe um WhatsApp com DDD.");
+        contact.reportValidity();
+        return;
+      }
+
+      if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+        status.textContent = "O registro de leads funciona no site publicado. Esta prévia não grava dados.";
+        status.dataset.state = "error";
+        return;
+      }
+
+      submit.disabled = true;
+      submit.textContent = "Enviando...";
+      status.textContent = "";
+      status.dataset.state = "";
+
+      try {
+        const response = await fetch("/__forms.html", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data).toString(),
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const message = [
+          "Olá, vim pelo site da HS SEG e acabei de enviar meus dados.",
+          `Nome: ${data.get("name")}`,
+          `Contato: ${contactValue}`,
+          `Serviço: ${data.get("service")}`,
+          `Necessidade: ${data.get("need")}`,
+        ].join("\n");
+        status.textContent = "Dados registrados. Confirme o envio da mensagem no WhatsApp.";
+        status.dataset.state = "success";
+        window.location.assign(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
+      } catch {
+        status.textContent = "Não conseguimos registrar seus dados. Tente novamente ou fale diretamente pelo WhatsApp.";
+        status.dataset.state = "error";
+        submit.disabled = false;
+        submit.textContent = "Enviar e abrir WhatsApp ↗";
+      }
+    });
+  }
+</script>

@@ -1,17 +1,19 @@
 ---
 import { services } from "@data/services";
-import { ArrowUpRight, Building2, Cctv, Fingerprint, House, Landmark, MapPinned, RadioTower, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const serviceIcons = {
-  monitoring: RadioTower,
-  camera: Cctv,
-  security: ShieldCheck,
-  tracking: MapPinned,
-  home: House,
-  business: Building2,
-  condominium: Landmark,
-  access: Fingerprint,
+const serviceImages: Record<string, string> = {
+  "monitoramento-24h": "/images/services/monitoramento.webp",
+  "seguranca-eletronica": "/images/cerca-eletrica-instalacao-real.webp",
+  "rastreamento-veicular": "/images/services/rastreamento-instalacao.webp",
+  residencia: "/images/services/residencia.webp",
+  "seguranca-para-empresas": "/images/services/empresas.webp",
+  "seguranca-para-condominios": "/images/services/condominios.webp",
 };
+
+const visibleServices = services.filter(
+  (service) => !["cameras-de-seguranca", "controle-de-acesso"].includes(service.slug),
+);
 ---
 
 <section id="servicos" class="services-section section-space bg-white">
@@ -26,30 +28,26 @@ const serviceIcons = {
       </p>
     </div>
 
-    <div class="services-list mt-12 grid sm:grid-cols-2 lg:grid-cols-4">
-      {services.map((service, index) => {
-        const Icon = serviceIcons[service.icon];
-
-        return (
-        <article id={service.title === "Monitoramento 24h" ? "monitoramento-24h" : undefined} class="service-card group flex min-h-[284px] scroll-mt-28 flex-col p-5">
-          <div class="mb-6 flex items-center justify-between gap-4">
-            <span class="service-icon grid size-14 place-items-center" aria-hidden="true">
-              <Icon size={27} strokeWidth={1.9} />
-            </span>
-            <span class="service-number">{String(index + 1).padStart(2, "0")}</span>
+    <div class="services-list mt-8 grid sm:grid-cols-2 lg:grid-cols-12">
+      {visibleServices.map((service, index) => (
+        <article id={service.title === "Monitoramento 24h" ? "monitoramento-24h" : undefined} class="service-card group scroll-mt-28 lg:col-span-4">
+          <div class="service-card__media" aria-hidden="true">
+            <img src={serviceImages[service.slug]} alt="" width="960" height="540" loading="lazy" decoding="async" />
           </div>
-          <h3 class="font-display text-xl font-black leading-tight text-black-hs">{service.title}</h3>
-          <p class="mt-3 flex-1 text-sm leading-6 text-gray-600">{service.description}</p>
-          <a
-            class="service-link mt-6 inline-flex items-center gap-2 font-display text-sm font-black text-black-hs"
-            href={`/servicos/${service.slug}/`}
-          >
-            Saiba mais
-            <ArrowUpRight size={16} strokeWidth={2} aria-hidden="true" />
-          </a>
+          <span class="service-number service-card__number">{String(index + 1).padStart(2, "0")}</span>
+          <div class="service-card__body">
+            <h3 class="font-display text-xl font-black leading-tight text-black-hs">{service.title}</h3>
+            <p class="mt-3 flex-1 text-sm leading-6 text-gray-600">{service.description}</p>
+            <a
+              class="service-link mt-6 inline-flex items-center gap-2 font-display text-sm font-black text-black-hs"
+              href={`/servicos/${service.slug}/`}
+            >
+              Saiba mais
+              <ArrowUpRight size={16} strokeWidth={2} aria-hidden="true" />
+            </a>
+          </div>
         </article>
-        );
-      })}
+      ))}
     </div>
   </div>
 </section>

@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from "./WhatsAppButton.astro";
+import TrackingPrices from "./TrackingPrices.astro";
 
 const benefits = [
   "Localização em tempo real",
@@ -19,7 +20,8 @@ const benefits = [
       <p class="mt-5 text-lg leading-8 text-white/70">
         Para carro, moto ou frota, você acompanha a localização, consulta rotas e recebe alertas para agir com mais informação quando precisar.
       </p>
-      <div class="tracking-benefits mt-8 grid sm:grid-cols-2">
+      <TrackingPrices class="mt-6" />
+      <div class="tracking-benefits mt-5 grid sm:grid-cols-2">
         {benefits.map((benefit) => (
           <div class="tracking-benefit border-t border-white/14 px-1 py-3">
             <span class="text-sm font-bold text-white/84">{benefit}</span>
@@ -27,27 +29,23 @@ const benefits = [
         ))}
       </div>
       <WhatsAppButton
-        class="mt-9"
+        class="mt-5"
         label="Quero rastrear meu veículo"
         message="Olá, vim pelo site da HS SEG. Quero rastrear meu veículo ou frota e gostaria de saber planos e instalação."
       />
     </div>
 
-    <div class="tracking-panel relative overflow-hidden rounded-lg border border-white/12 bg-[#0b1118] shadow-panel">
+    <div class="tracking-panel relative overflow-hidden rounded-lg border border-white/12 bg-[#14110b] shadow-panel">
       <img
         class="tracking-image"
-        src="/images/rastreamento-veicular-real.webp"
-        alt="Celular fixado no painel de um veículo exibindo um mapa com localizações de uma frota"
+        src="/images/rastreamento-monitoramento.webp"
+        alt="Profissional acompanhando veículos e rotas em uma plataforma de rastreamento no computador"
         width="1024"
         height="683"
         loading="lazy"
         decoding="async"
       />
       <div class="tracking-image__overlay" aria-hidden="true"></div>
-      <div class="tracking-image__badge">
-        <span class="tracking-image__status"></span>
-        <span>Rastreamento em tempo real</span>
-      </div>
       <div class="tracking-image__caption">
         <p>Localização ao vivo</p>
         <strong>Carro, moto e frota sob controle.</strong>

@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import WhatsAppButton from "@components/WhatsAppButton.astro";
+import TrackingPrices from "@components/TrackingPrices.astro";
 import { services, type Service } from "@data/services";
 import {
   ArrowLeft,
@@ -90,6 +91,7 @@ const process = [
               {service.title}
             </h1>
             <p class="mt-6 max-w-2xl text-lg leading-8 text-white/76">{service.intro}</p>
+            {service.slug === "rastreamento-veicular" && <TrackingPrices class="mt-8 max-w-xl" />}
           </div>
         </div>
       </div>
