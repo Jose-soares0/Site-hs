@@ -1,13 +1,19 @@
 import { useMemo, useState } from "react";
-import { Building2, Car, CheckCircle2, Home, Landmark, MessageCircle } from "lucide-react";
+import { Building2, Car, CheckCircle2, ClipboardList, Home, Landmark } from "lucide-react";
 import { solutions, type SolutionKey } from "@data/solutions";
-import { createWhatsAppLink } from "@utils/whatsapp";
 
 const icons = {
   casa: Home,
   empresa: Building2,
   condominio: Landmark,
   veiculo: Car,
+};
+
+const serviceBySolution: Record<SolutionKey, string> = {
+  casa: "Residência",
+  empresa: "Segurança para empresas",
+  condominio: "Segurança para condomínios",
+  veiculo: "Rastreamento veicular",
 };
 
 export default function SolutionSelector() {
@@ -17,7 +23,6 @@ export default function SolutionSelector() {
     [activeKey],
   );
   const activeIndex = solutions.findIndex((solution) => solution.key === activeKey) + 1;
-  const whatsappLink = createWhatsAppLink(activeSolution.message);
 
   return (
     <section id="solucoes" className="section-space bg-white">
@@ -88,9 +93,9 @@ export default function SolutionSelector() {
                   ))}
                 </div>
 
-                <a className="primary-button whatsapp-button mt-8" href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle size={18} aria-hidden="true" />
-                  Solicitar avaliação
+                <a className="primary-button whatsapp-button mt-8" href="#lead-form" data-lead-service={serviceBySolution[activeKey]}>
+                  <ClipboardList size={18} aria-hidden="true" />
+                  Quero contratar
                 </a>
               </div>
 

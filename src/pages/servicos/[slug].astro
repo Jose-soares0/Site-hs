@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Footer from "@components/Footer.astro";
+import FinalCta from "@components/FinalCta.astro";
 import Header from "@components/Header.astro";
 import WhatsAppButton from "@components/WhatsAppButton.astro";
 import TrackingPrices from "@components/TrackingPrices.astro";
@@ -176,12 +177,13 @@ const process = [
           <p class="eyebrow text-gray-line">Solicite uma avaliação</p>
           <h2 class="section-title mt-4 max-w-4xl text-white">Quer entender como {service.title.toLowerCase()} se aplica ao seu cenário?</h2>
           <p class="mt-5 max-w-2xl text-base leading-7 text-white/68">
-            Fale com a HS SEG, explique o que precisa proteger e receba uma orientação para iniciar seu orçamento.
+            Preencha o formulário e explique o que precisa proteger para receber uma orientação sobre seu orçamento.
           </p>
         </div>
-        <WhatsAppButton label="Solicitar orçamento no WhatsApp" message={service.message} />
+        <WhatsAppButton label="Solicitar orçamento" />
       </div>
     </section>
+    <FinalCta selectedService={service.title} />
   </main>
   <Footer />
 </BaseLayout>

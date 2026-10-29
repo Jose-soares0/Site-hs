@@ -4,7 +4,7 @@ import { Instagram } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton.astro";
 
 const isHome = Astro.url.pathname === "/";
-const getNavigationHref = (href: string) => (isHome ? href : `/${href}`);
+const getNavigationHref = (href: string) => (isHome || href === "#lead-form" ? href : `/${href}`);
 ---
 
 <header class="site-header fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black-hs/88 backdrop-blur-xl">
@@ -25,7 +25,7 @@ const getNavigationHref = (href: string) => (isHome ? href : `/${href}`);
     </nav>
 
     <div class="hidden items-center gap-3 lg:flex">
-      <WhatsAppButton label="WhatsApp" />
+      <WhatsAppButton label="WhatsApp" direct />
     </div>
 
     <button
@@ -56,7 +56,7 @@ const getNavigationHref = (href: string) => (isHome ? href : `/${href}`);
         <Instagram size={19} aria-hidden="true" /> Instagram
       </a>
     </nav>
-    <WhatsAppButton class="w-full" />
+    <WhatsAppButton class="w-full" label="WhatsApp" direct />
   </div>
   <div class="site-progress" aria-hidden="true"><span></span></div>
 </header>

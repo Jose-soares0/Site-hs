@@ -1,6 +1,12 @@
 ---
 import { site } from "@data/site";
 import { services } from "@data/services";
+
+interface Props {
+  selectedService?: string;
+}
+
+const { selectedService } = Astro.props;
 ---
 
 <section id="contato" class="dark-surface section-space lead-section">
@@ -12,9 +18,6 @@ import { services } from "@data/services";
         Nossa equipe analisa sua necessidade e orienta a solução mais adequada para sua casa, empresa, condomínio ou veículo.
       </p>
       <p class="mt-8 text-sm font-semibold text-white/55">Atendimento em Teresina e região</p>
-      <a class="lead-direct-link" href={`https://wa.me/${site.whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-        Prefere conversar agora? Fale no WhatsApp <span aria-hidden="true">↗</span>
-      </a>
     </div>
 
     <form
@@ -27,6 +30,7 @@ import { services } from "@data/services";
       netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="hs-seg-leads" />
+      <input type="hidden" name="contact_type" value="WhatsApp" />
       <input type="hidden" name="utm_source" />
       <input type="hidden" name="utm_medium" />
       <input type="hidden" name="utm_campaign" />
@@ -39,14 +43,6 @@ import { services } from "@data/services";
           <input id="lead-name" name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Como podemos chamar você?" />
         </div>
 
-        <fieldset class="lead-field lead-field--full">
-          <legend>Como prefere deixar seu contato?</legend>
-          <div class="lead-contact-toggle">
-            <label><input type="radio" name="contact_type" value="WhatsApp" checked /><span>WhatsApp</span></label>
-            <label><input type="radio" name="contact_type" value="E-mail" /><span>E-mail</span></label>
-          </div>
-        </fieldset>
-
         <div class="lead-field lead-field--full">
           <label for="lead-contact">Seu WhatsApp</label>
           <input id="lead-contact" name="contact" type="tel" inputmode="tel" autocomplete="tel" maxlength="60" required placeholder="(86) 99999-9999" />
@@ -55,9 +51,9 @@ import { services } from "@data/services";
         <div class="lead-field lead-field--full">
           <label for="lead-service">Qual serviço você procura?</label>
           <select id="lead-service" name="service" required>
-            <option value="" selected disabled>Selecione um serviço</option>
-            {services.filter((service) => !["cameras-de-seguranca", "controle-de-acesso"].includes(service.slug)).map((service) => (
-              <option value={service.title}>{service.title}</option>
+            <option value="" selected={!selectedService} disabled>Selecione um serviço</option>
+            {services.map((service) => (
+              <option value={service.title} selected={selectedService === service.title}>{service.title}</option>
             ))}
             <option value="Ainda não sei">Ainda não sei</option>
           </select>
@@ -79,24 +75,17 @@ import { services } from "@data/services";
 <script define:vars={{ whatsappNumber: site.whatsappNumber }}>
   const form = document.querySelector("#lead-form");
   const contact = document.querySelector("#lead-contact");
-  const contactLabel = document.querySelector('label[for="lead-contact"]');
   const status = document.querySelector("#lead-form-status");
   const submit = form?.querySelector('button[type="submit"]');
 
-  if (form && contact && contactLabel && status && submit) {
-    const updateContactField = () => {
-      const isEmail = form.elements.contact_type.value === "E-mail";
-      contactLabel.textContent = isEmail ? "Seu e-mail" : "Seu WhatsApp";
-      contact.type = isEmail ? "email" : "tel";
-      contact.inputMode = isEmail ? "email" : "tel";
-      contact.autocomplete = isEmail ? "email" : "tel";
-      contact.placeholder = isEmail ? "voce@exemplo.com" : "(86) 99999-9999";
-      contact.value = "";
-      contact.setCustomValidity("");
-    };
-
-    form.querySelectorAll('input[name="contact_type"]').forEach((radio) => radio.addEventListener("change", updateContactField));
+  if (form && contact && status && submit) {
     contact.addEventListener("input", () => contact.setCustomValidity(""));
+
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element)) return;
+      const service = event.target.closest("[data-lead-service]")?.getAttribute("data-lead-service");
+      if (service) form.elements.service.value = service;
+    });
 
     const params = new URLSearchParams(window.location.search);
     ["utm_source", "utm_medium", "utm_campaign"].forEach((key) => {
@@ -106,9 +95,8 @@ import { services } from "@data/services";
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(form);
-      const isEmail = data.get("contact_type") === "E-mail";
       const contactValue = String(data.get("contact") ?? "").trim();
-      if (!isEmail && contactValue.replace(/\D/g, "").length < 10) {
+      if (contactValue.replace(/\D/g, "").length < 10) {
         contact.setCustomValidity("Informe um WhatsApp com DDD.");
         contact.reportValidity();
         return;

@@ -20,5 +20,5 @@ export const navigation = [
   { label: "Quem somos", href: "#quem-somos" },
   { label: "Rastreamento", href: "#rastreamento" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contato" },
+  { label: "Contato", href: "#lead-form" },
 ];
